@@ -1,0 +1,172 @@
+[
+    {
+        "name": "복숭아 스무디",
+        "type": "juice",
+        "type2" : "noneCoffee",
+        "price": 4000,
+        "imageUrl":"/images/smoothie.jpg"
+    },
+    {
+        "name": "레몬에이드",
+        "type": "juice",
+        "type2": "noneCoffee",
+        "price": 4800,
+        "imageUrl":"/images/ade.jpg"
+    },
+    {
+        "name": "아이스 아메리카노",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 3800,
+        "imageUrl":"/images/americano.jpg"
+    },
+    {
+        "name": "카라멜마끼아또",
+        "type2": "coffee",
+        "type": "juice",
+        "price": 5800,
+        "imageUrl":"/images/cmm.jpg"
+    },
+    {
+        "name": "바닐라 라떼",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 5800,
+        "imageUrl":"/images/vanilla.jpg"
+    },
+    {
+        "name": "카페 라떼",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 4800,
+        "imageUrl":"/images/vanilla.jpg"
+    },
+    {
+        "name": "카페 모카",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 5300,
+        "imageUrl":"/images/moc.jpg"
+    },
+    {
+        "name": "연유 라떼",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 5300,
+        "imageUrl":"/images/yl.jpg"
+    },
+    {
+        "name": "초코 라떼",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 5300,
+        "imageUrl":"/images/hotchoco.jpg"
+    },
+    {
+        "name": "김치 라떼",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 6000,
+        "imageUrl":"/images/kimchi.png"
+    },
+    {
+        "name": "와사비 라떼",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 6000,
+        "imageUrl":"/images/wsb.jpg"
+    },
+    {
+        "name": "두부 라떼",
+        "type": "juice",
+        "type2": "coffee",
+        "price": 6000,
+        "imageUrl":"/images/dubu.jpg"
+    },
+    {
+        "name": "딸기 스무디",
+        "type": "juice",
+        "type2": "noneCoffee",
+        "price": 5300,
+        "imageUrl":"/images/stsmoothie.jpg"
+    },
+    {
+        "name": "김치 에이드",
+        "type": "juice",
+        "type2": "noneCoffee",
+        "price": 5300,
+        "imageUrl":"/images/kimchiade.jpg"
+    },
+    {
+        "name": "요거트 스무디",
+        "type": "juice",
+        "type2": "noneCoffee",
+        "price": 5300,
+        "imageUrl":"/images/yogurt.jpg"
+    },
+    {
+        "name": "오렌지 자몽 블랙티",
+        "type": "juice",
+        "type2": "noneCoffee",
+        "price": 5000,
+        "imageUrl":"/images/orangeblacktea.jpg"
+    },
+    {
+        "name": "오미자 차",
+        "type": "juice",
+        "type2": "noneCoffee",
+        "price": 5000,
+        "imageUrl":"/images/omg.jpg"
+    },
+    {
+        "name": "녹차",
+        "type": "juice",
+        "type2": "noneCoffee",
+        "price": 5000,
+        "imageUrl":"/images/greentea.jpg"
+    },
+    {
+        "name": "초코 조각케이크",
+        "type": "dessert",
+        "type2": "none",
+        "price": 7000,
+        "imageUrl":"/images/chocolate.jpg"
+    },
+    {
+        "name": "딸기 조각케이크",
+        "type": "dessert",
+        "type2": "none",
+        "price": 7800,
+        "imageUrl":"/images/berry.jpg"
+    },
+    {
+        "name": "초코쿠키",
+        "type": "dessert",
+        "type2": "none",
+        "price": 3300,
+        "imageUrl":"/images/chunk.jpg"
+    },
+    {
+        "name": "샌드위치",
+        "type": "dessert",
+        "type2": "none",
+        "price": 6800,
+        "imageUrl":"/images/sand.jpg"
+    },
+    {
+        "name": "호정텀블러",
+        "type": "cup",
+        "type2": "none",
+        "price": 22800,
+        "imageUrl":"/images/htum.jpg"
+    },
+    {
+        "name": "동길텀블러",
+        "type": "cup",
+        "type2": "none",
+        "price": 22800,
+        "imageUrl":"/images/dtum.jpg"
+    }
+
+    
+]
