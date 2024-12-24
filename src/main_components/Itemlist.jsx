@@ -73,7 +73,7 @@ function Itemlist({ items }) {
     >
       {items &&
         items.map((item) => (
-          <Menuitem className="menu-item card" key={item.id}>
+          <Menuitem key={item.id} className="menu-item card">
             <img src={item.image} alt={item.name} className="card-img-top" />
             <div className="card-body">
               <span className="card-title">{item.name}</span>

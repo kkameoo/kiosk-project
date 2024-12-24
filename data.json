@@ -1,5 +1,6 @@
 [
     {
+        "id": 0,
         "name": "복숭아 스무디",
         "type": "juice",
         "type2" : "noneCoffee",
@@ -7,6 +8,7 @@
         "imageUrl":"/images/smoothie.jpg"
     },
     {
+        "id": 1,
         "name": "레몬에이드",
         "type": "juice",
         "type2": "noneCoffee",
@@ -14,6 +16,7 @@
         "imageUrl":"/images/ade.jpg"
     },
     {
+        "id": 2,
         "name": "아이스 아메리카노",
         "type": "juice",
         "type2": "coffee",
@@ -21,6 +24,7 @@
         "imageUrl":"/images/americano.jpg"
     },
     {
+        "id": 3,
         "name": "카라멜마끼아또",
         "type2": "coffee",
         "type": "juice",
@@ -28,6 +32,7 @@
         "imageUrl":"/images/cmm.jpg"
     },
     {
+        "id": 4,
         "name": "바닐라 라떼",
         "type": "juice",
         "type2": "coffee",
@@ -35,6 +40,7 @@
         "imageUrl":"/images/vanilla.jpg"
     },
     {
+        "id": 5,
         "name": "카페 라떼",
         "type": "juice",
         "type2": "coffee",
@@ -42,6 +48,7 @@
         "imageUrl":"/images/vanilla.jpg"
     },
     {
+        "id": 6,
         "name": "카페 모카",
         "type": "juice",
         "type2": "coffee",
@@ -49,6 +56,7 @@
         "imageUrl":"/images/moc.jpg"
     },
     {
+        "id": 7,
         "name": "연유 라떼",
         "type": "juice",
         "type2": "coffee",
@@ -56,6 +64,7 @@
         "imageUrl":"/images/yl.jpg"
     },
     {
+        "id": 8,
         "name": "초코 라떼",
         "type": "juice",
         "type2": "coffee",
@@ -63,6 +72,7 @@
         "imageUrl":"/images/hotchoco.jpg"
     },
     {
+        "id": 9,
         "name": "김치 라떼",
         "type": "juice",
         "type2": "coffee",
@@ -70,6 +80,7 @@
         "imageUrl":"/images/kimchi.png"
     },
     {
+        "id": 10,
         "name": "와사비 라떼",
         "type": "juice",
         "type2": "coffee",
@@ -77,6 +88,7 @@
         "imageUrl":"/images/wsb.jpg"
     },
     {
+        "id": 11,
         "name": "두부 라떼",
         "type": "juice",
         "type2": "coffee",
@@ -84,6 +96,7 @@
         "imageUrl":"/images/dubu.jpg"
     },
     {
+        "id": 12,
         "name": "딸기 스무디",
         "type": "juice",
         "type2": "noneCoffee",
@@ -91,6 +104,7 @@
         "imageUrl":"/images/stsmoothie.jpg"
     },
     {
+        "id": 13,
         "name": "김치 에이드",
         "type": "juice",
         "type2": "noneCoffee",
@@ -98,6 +112,7 @@
         "imageUrl":"/images/kimchiade.jpg"
     },
     {
+        "id": 14,
         "name": "요거트 스무디",
         "type": "juice",
         "type2": "noneCoffee",
@@ -105,6 +120,7 @@
         "imageUrl":"/images/yogurt.jpg"
     },
     {
+        "id": 15,
         "name": "오렌지 자몽 블랙티",
         "type": "juice",
         "type2": "noneCoffee",
@@ -112,6 +128,7 @@
         "imageUrl":"/images/orangeblacktea.jpg"
     },
     {
+        "id": 16,
         "name": "오미자 차",
         "type": "juice",
         "type2": "noneCoffee",
@@ -119,6 +136,7 @@
         "imageUrl":"/images/omg.jpg"
     },
     {
+        "id": 17,
         "name": "녹차",
         "type": "juice",
         "type2": "noneCoffee",
@@ -126,6 +144,7 @@
         "imageUrl":"/images/greentea.jpg"
     },
     {
+        "id": 18,
         "name": "초코 조각케이크",
         "type": "dessert",
         "type2": "none",
@@ -133,6 +152,7 @@
         "imageUrl":"/images/chocolate.jpg"
     },
     {
+        "id": 19,
         "name": "딸기 조각케이크",
         "type": "dessert",
         "type2": "none",
@@ -140,6 +160,7 @@
         "imageUrl":"/images/berry.jpg"
     },
     {
+        "id": 20,
         "name": "초코쿠키",
         "type": "dessert",
         "type2": "none",
@@ -147,6 +168,7 @@
         "imageUrl":"/images/chunk.jpg"
     },
     {
+        "id": 21,
         "name": "샌드위치",
         "type": "dessert",
         "type2": "none",
@@ -154,6 +176,7 @@
         "imageUrl":"/images/sand.jpg"
     },
     {
+        "id": 22,
         "name": "호정텀블러",
         "type": "cup",
         "type2": "none",
@@ -161,6 +184,7 @@
         "imageUrl":"/images/htum.jpg"
     },
     {
+        "id": 23,
         "name": "동길텀블러",
         "type": "cup",
         "type2": "none",

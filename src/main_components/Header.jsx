@@ -7,7 +7,7 @@ const Img = styled.img`
 
 function Header() {
   const imgUrl = new URL("../images/logo1.jpg", import.meta.url).href;
-  console.log(imgUrl);
+  // console.log(imgUrl);
   return (
     <h2 className="text-center mb-4">
       <Img src={imgUrl} />
