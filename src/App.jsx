@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "./main_components/Header";
 import Itemlist from "./main_components/Itemlist";
 import Topbar from "./main_components/Topbar";
@@ -11,6 +11,9 @@ function App() {
     fetchItems();
   }, []);
 
+  const [itemList, setItemList] = useState([]);
+  const [error, setError] = useState(null);
+  const [image, setImage] = useState(null);
   const fetchItems = async () => {
     try {
       const response = await fetch("/data.json");
@@ -18,16 +21,28 @@ function App() {
         throw new Error("데이터를 받아오지 못했습니다.");
       }
       const data = await response.json();
-      console.log(data);
+      setItemList(data);
+      fetchImage(data);
     } catch (err) {
-      console.log(err.message);
+      setError(err.message);
     }
   };
+
+  // 이미지 다시 넣기
+  const fetchImage = (data) => {
+    for (let i = 0; i < data.length; i++) {
+      let imgUrl = new URL("." + data[i].imageUrl, import.meta.url).href;
+      console.log(imgUrl);
+      data[i].image = imgUrl;
+    }
+    setItemList(data);
+  };
+
   return (
     <div className="container mt-5">
       <Header />
       <Topbar />
-      <Itemlist />
+      <Itemlist items={itemList} />
 
       <Underbar />
       <UnderMidbar />
