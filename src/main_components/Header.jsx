@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Img = styled.img`
-  width: 100% ;
-  height 300px;
+  width: 100%;
+  height: 300px;
 `;
 
 function Header() {

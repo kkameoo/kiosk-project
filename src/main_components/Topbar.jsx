@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
+const Btnwrqp = styled.div`
+  display: flex;
+  gap: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+`;
 const Button = styled.button`
+  width: 150px;
+  text-align: center;
+  display: block;
+  gap: 40px;
   padding: 1em 1.5em;
   font-size: 1em;
   font-weight: 400;
@@ -9,9 +19,8 @@ const Button = styled.button`
   cursor: pointer;
   appearance: none;
   border: none;
-  color: #ffffff;
   margin-bottom: 20px;
-  hite-space: nowrap;
+  white-space: nowrap;
   border-color: #111;
   color: #9c9c9c;
   background: linear-gradient(180deg, #555 0%, #222 49%, #000 51%, #222 100%);
@@ -30,18 +39,21 @@ const Button = styled.button`
       outline: none;
     }
   }
+  #btnCallmenu0 {
+    margin-left: 40px;
+  }
 `;
 
 function Topbar() {
   return (
-    <div className="menubuttonWrap">
+    <Btnwrqp className="menubuttonWrap">
       <Button id="btnCallmenu0">전체보기</Button>
       <Button id="btnCallmenu1">음료</Button>
       <Button id="btnCallmenu2">디저트</Button>
       <Button id="btnCallmenu3">커피</Button>
       <Button id="btnCallmenu4">베버리지</Button>
       <Button id="btnCallmenu5">기타</Button>
-    </div>
+    </Btnwrqp>
   );
 }
 export default Topbar;
