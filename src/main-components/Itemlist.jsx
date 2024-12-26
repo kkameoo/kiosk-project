@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Modal from "../modal-components/modal";
 
 const BMenu = styled.div`
   /* background: linear-gradient(135deg, rgb(71, 70, 70), rgb(173, 171, 171)); */
@@ -65,7 +66,7 @@ const Menuitem = styled.div`
   }
 `;
 
-function Itemlist({ items }) {
+function Itemlist({ items, openModal }) {
   return (
     <BMenu
       className="button d-flex flex-wrap justify-content-center"
@@ -73,7 +74,11 @@ function Itemlist({ items }) {
     >
       {items &&
         items.map((item) => (
-          <Menuitem key={item.id} className="menu-item card">
+          <Menuitem
+            key={item.id}
+            className="menu-item card"
+            onClick={() => openModal(item.id)}
+          >
             <img src={item.image} alt={item.name} className="card-img-top" />
             <div className="card-body">
               <span className="card-title">{item.name}</span>

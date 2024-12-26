@@ -1,16 +1,21 @@
-import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 
-function ListPage({ pages, paging }) {
+function ListPage({ pages, paging, prevButton, nextButton }) {
   return (
     <div>
-      <NavLink>prev</NavLink>
+      <NavLink
+        onClick={() => {
+          prevButton();
+        }}
+      >
+        prev
+      </NavLink>
       {pages.map((page) => (
         <NavLink
           key={page.id}
           to={page.id}
           onClick={(event) => {
-            // event.preventDefault();
+            event.preventDefault();
             console.log(event.target.value);
             paging(page.id + 1);
           }}
@@ -18,6 +23,13 @@ function ListPage({ pages, paging }) {
           {page.number}
         </NavLink>
       ))}
+      <NavLink
+        onClick={() => {
+          nextButton();
+        }}
+      >
+        next
+      </NavLink>
     </div>
   );
 }

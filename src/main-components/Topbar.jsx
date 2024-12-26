@@ -44,15 +44,65 @@ const Button = styled.button`
   }
 `;
 
-function Topbar() {
+function Topbar({
+  allButton,
+  juiceButton,
+  dessertButton,
+  coffeeButton,
+  beverageButton,
+  etcButton,
+}) {
   return (
     <Btnwrqp className="menubuttonWrap">
-      <Button id="btnCallmenu0">전체보기</Button>
-      <Button id="btnCallmenu1">음료</Button>
-      <Button id="btnCallmenu2">디저트</Button>
-      <Button id="btnCallmenu3">커피</Button>
-      <Button id="btnCallmenu4">베버리지</Button>
-      <Button id="btnCallmenu5">기타</Button>
+      <Button
+        id="btnCallmenu0"
+        onClick={() => {
+          allButton();
+          // paging(1);
+        }}
+      >
+        전체보기
+      </Button>
+      <Button
+        id="btnCallmenu1"
+        onClick={() => {
+          juiceButton();
+        }}
+      >
+        음료
+      </Button>
+      <Button
+        id="btnCallmenu2"
+        onClick={() => {
+          dessertButton();
+        }}
+      >
+        디저트
+      </Button>
+      <Button
+        id="btnCallmenu3"
+        onClick={() => {
+          coffeeButton();
+        }}
+      >
+        커피
+      </Button>
+      <Button
+        id="btnCallmenu4"
+        onClick={() => {
+          beverageButton();
+        }}
+      >
+        베버리지
+      </Button>
+      <Button
+        id="btnCallmenu5"
+        onClick={() => {
+          etcButton();
+        }}
+      >
+        기타
+      </Button>
     </Btnwrqp>
   );
 }
