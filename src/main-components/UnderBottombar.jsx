@@ -68,7 +68,7 @@ const BtnText2 = styled.div`
   /* margin-top: 58px; */
   color: #fff;
 `;
-function UnderBottombar() {
+function UnderBottombar({ paynow }) {
   return (
     <div className="actions text-center">
       <DButton id="btn-danger">
@@ -80,7 +80,9 @@ function UnderBottombar() {
       </DButton>
       <AButton id="btn-success">
         <BtnText className="BtnText">결제하기</BtnText>
-        <BtnTwo className="BtnTwo">눌러!</BtnTwo>
+        <BtnTwo className="BtnTwo" onClick={() => paynow()}>
+          눌러!
+        </BtnTwo>
       </AButton>
     </div>
   );

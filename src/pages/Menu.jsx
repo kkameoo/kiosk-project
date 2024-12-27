@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Header from "../main-components/Header";
 import Itemlist from "../main-components/Itemlist";
 import Topbar from "../main-components/TopBar";
@@ -6,7 +6,7 @@ import Underbar from "../main-components/Underbar";
 import UnderBottombar from "../main-components/UnderBottombar";
 import UnderMidbar from "../main-components/UnderMidbar";
 import ListPage from "../main-components/ListPage";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Modal from "../modal-components/modal";
 
 function Menu() {
@@ -32,6 +32,8 @@ function Menu() {
   const [cartItem, setCartItem] = useState([]);
   // 선택된 아이템
   const [readItem, setReadItem] = useState(null);
+  // 선택된 총가격
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     // console.log("필터 변경");
@@ -156,14 +158,43 @@ function Menu() {
   // 순서 주의
   const addCart = () => {
     let processingData = [];
+    // 카트에 아무것도 없음
     if (cartItem.length === 0) {
-      processingData.push({ ...readItem, conut: 1 });
+      processingData.push({ ...readItem, count: 1 });
       setCartItem(processingData);
+    } else {
+      let flag = false;
+      cartItem.map((item, index) => {
+        if (item.id === readItem.id) {
+          flag = true;
+          cartItem.map((item) => {
+            processingData.push(item);
+          });
+          processingData[index].count++;
+          console.log(processingData);
+          setCartItem(processingData);
+        }
+      });
+      if (flag === false) {
+        // processingData = cartItem;  -> 얕은 복사를 하면 state가 변화한것을 모름, 깊은 복사사용
+        cartItem.map((item) => {
+          processingData.push(item);
+        });
+        processingData.push({ ...readItem, count: 1 });
+        setCartItem(processingData);
+      }
     }
-    cartItem.map((item) => {
-      item.id === readItem.id ? console.log("yes") : console.log("no");
-    });
+    // calc();
+    setOpen(false);
   };
+
+  useMemo(() => {
+    let price = 0;
+    cartItem.map((item) => {
+      price += item.price * item.count;
+    });
+    setTotalPrice(price);
+  }, [cartItem]);
 
   let content = null;
 
@@ -191,6 +222,23 @@ function Menu() {
     }
     setReadItem(item);
   };
+  const navigate = useNavigate();
+  const paynow = () => {
+    if (cartItem.length === 0) {
+      alert("음식을 고르시오");
+    } else {
+      navigate(
+        "/payment",
+
+        {
+          state: {
+            cartItem,
+            totalPrice,
+          },
+        }
+      );
+    }
+  };
 
   return (
     <div>
@@ -212,9 +260,9 @@ function Menu() {
         prevButton={prevButton}
         nextButton={nextButton}
       />
-      <Underbar />
-      <UnderMidbar />
-      <UnderBottombar />
+      <Underbar cartItem={cartItem} />
+      <UnderMidbar totalPrice={totalPrice} />
+      <UnderBottombar paynow={paynow} />
     </div>
   );
 }
