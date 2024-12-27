@@ -136,6 +136,7 @@ function Menu() {
     original.map((item) => {
       item.type2 === "coffee" ? processingData.push(item) : item;
     });
+
     setFilteredList(processingData);
   };
 
