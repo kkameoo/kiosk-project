@@ -114,8 +114,11 @@ function Modal({ onClose, readItem, addCart }) {
 
   //각 버튼 클릭 시 state 업데이트
   const tempClick = (temp) => {
-    setOptions((prevState) => ({
-      ...prevState,
+    setOptions(() => ({
+      size: "none",
+      topping: "none",
+      icetemp: "none",
+      addmenu: "none",
       temp,
     }));
   };
@@ -149,7 +152,7 @@ function Modal({ onClose, readItem, addCart }) {
       <Window>
         <Button>
           <Nbutton onClick={() => onClose()}>취소</Nbutton>
-          <Ybutton onClick={() => addCart()}>선택 완료</Ybutton>
+          <Ybutton onClick={() => addCart(options)}>선택 완료</Ybutton>
         </Button>
         <ItemInfo>
           <ItemImg src={readItem.image}></ItemImg>

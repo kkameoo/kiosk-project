@@ -57,12 +57,12 @@ function Menu() {
     }
   };
 
-  // 페이지  넘버 클릭 시 6개 분량의 콘텐츠가 나오도록 조정 + 현재 페이지 세팅
+  // 페이지  넘버 클릭 시 8개 분량의 콘텐츠가 나오도록 조정 + 현재 페이지 세팅
   const paging = (page) => {
     let processingData = [];
     let num = 0;
     setItemList([]);
-    for (let i = (page - 1) * 6; i < page * 6; i++) {
+    for (let i = (page - 1) * 8; i < page * 8; i++) {
       if (filteredList[i] === undefined) {
         console.log("no contents");
       } else {
@@ -88,7 +88,7 @@ function Menu() {
   // 페이지 갯수 세팅
   const makeNumber = (data) => {
     // console.log(data.length);
-    let pageNum = Math.ceil(data.length / 6);
+    let pageNum = Math.ceil(data.length / 8);
     // console.log(pageNum);
     let container = [];
     let j = 0;
@@ -158,16 +158,24 @@ function Menu() {
   };
 
   // 순서 주의
-  const addCart = () => {
+  const addCart = (data) => {
+    console.log(data);
     let processingData = [];
     // 카트에 아무것도 없음
     if (cartItem.length === 0) {
-      processingData.push({ ...readItem, count: 1 });
+      processingData.push({ ...readItem, count: 1, option: data });
       setCartItem(processingData);
     } else {
       let flag = false;
       cartItem.map((item, index) => {
-        if (item.id === readItem.id) {
+        if (
+          item.id === readItem.id &&
+          item.option.addmenu == data.addmenu &&
+          item.option.icetemp == data.icetemp &&
+          item.option.size == data.size &&
+          item.option.temp == data.temp &&
+          item.option.topping == data.topping
+        ) {
           flag = true;
           cartItem.map((item) => {
             processingData.push(item);
@@ -182,12 +190,13 @@ function Menu() {
         cartItem.map((item) => {
           processingData.push(item);
         });
-        processingData.push({ ...readItem, count: 1 });
+        processingData.push({ ...readItem, count: 1, option: data });
         setCartItem(processingData);
       }
     }
     // calc();
     setOpen(false);
+    console.log("finish");
   };
 
   useMemo(() => {
@@ -242,6 +251,37 @@ function Menu() {
     }
   };
 
+  const plusCart = (num) => {
+    // console.log(num);
+    let processingData = [];
+    cartItem.map((item) => {
+      processingData.push(item);
+    });
+    processingData[num].count++;
+    setCartItem(processingData);
+  };
+  const minusCart = (num) => {
+    let processingData = [];
+    if (cartItem[num].count === 1) {
+      processingData = [];
+      cartItem.map((item, index) => {
+        if (index === num) {
+          return;
+        } else {
+          processingData.push(item);
+        }
+      });
+      setCartItem(processingData);
+    } else {
+      processingData = [];
+      cartItem.map((item) => {
+        processingData.push(item);
+      });
+      processingData[num].count--;
+      setCartItem(processingData);
+    }
+  };
+
   return (
     <div>
       <Header />
@@ -262,7 +302,7 @@ function Menu() {
         prevButton={prevButton}
         nextButton={nextButton}
       />
-      <Underbar cartItem={cartItem} />
+      <Underbar cartItem={cartItem} plusCart={plusCart} minusCart={minusCart} />
       <UnderMidbar totalPrice={totalPrice} />
       <UnderBottombar paynow={paynow} />
     </div>
