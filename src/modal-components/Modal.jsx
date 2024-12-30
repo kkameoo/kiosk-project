@@ -114,11 +114,8 @@ function Modal({ onClose, readItem, addCart }) {
 
   //각 버튼 클릭 시 state 업데이트
   const tempClick = (temp) => {
-    setOptions(() => ({
-      size: "none",
-      topping: "none",
-      icetemp: "none",
-      addmenu: "none",
+    setOptions((prevState) => ({
+      ...prevState,
       temp,
     }));
   };
