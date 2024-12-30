@@ -19,9 +19,9 @@ const BMenu = styled.div`
   font-size: 16px;
   font-weight: 400;
   /* height: 2200px; */
-  justify-content: center;
+  /* justify-content: center; */
   line-height: 24px;
-  text-align: center;
+  /* text-align: center; */
   text-size-adjust: 100%;
   unicode-bidi: isolate;
   /* width: 1110px; */

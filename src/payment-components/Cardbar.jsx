@@ -2,38 +2,111 @@ import styled from "styled-components";
 
 const AButtonList = styled.div`
   display: flex;
-  flex-wrap: wrap; /* 버튼들이 3개씩 줄바꿈 되도록 설정 */
-  justify-content: space-between; /* 각 줄마다 버튼들이 균등하게 배치되도록 */
+  flex-wrap: wrap;
+  /* justify-content: space-between;  */
   margin-top: 20px;
 `;
 
+const BButtonList = styled(AButtonList)`
+  /* display: flex;
+  flex-wrap: wrap; */
+  justify-content: space-between;
+  /* margin-top: 20px; */
+`;
+
 const Buttons = styled.div`
-  width: 30%;
+  border: 2px #cacaca solid;
+  border-radius: 5%;
+  width: 31.5%;
+  color: black;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: ${(props) => props.bMargin};
+`;
+
+const AButtons = styled(Buttons)`
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: 0.85rem;
+  width: 23%;
+  margin-right: 0;
 `;
 
 const H4 = styled.h4`
   color: #333;
-  text-align: center;
+  text-align: left;
+`;
+const Img = styled.img`
+  height: ${(props) => props.size};
+  margin-right: 0.5rem;
 `;
 
-function Cardbar() {
+function Cardbar({ icon }) {
   return (
     <>
-      <H4>결제 방법</H4>
+      <H4>결제 수단을 선택해주세요</H4>
       <AButtonList>
-        <Buttons id="payByCard">카드결제</Buttons>
-        <Buttons>앱카드</Buttons>
-        <Buttons>카카오페이</Buttons>
-        <Buttons>페이코</Buttons>
-        <Buttons>네이버페이</Buttons>
-        <Buttons>제로페이</Buttons>
-        <Buttons>BC 페이북</Buttons>
-        <Buttons>하나 Pay</Buttons>
-        <Buttons>KB Pay</Buttons>
-        <Buttons>애플페이</Buttons>
-        <Buttons>쿠폰사용</Buttons>
-        <Buttons>4조카페 선불카드</Buttons>
+        <Buttons id="payByCard" bMargin="0.75rem">
+          <Img src={icon[0]} size="5rem" />
+          카드결제
+        </Buttons>
+        <Buttons bMargin="0.75rem">
+          <Img src={icon[1]} size="3.5rem" />
+          앱카드
+        </Buttons>
       </AButtonList>
+      <BButtonList>
+        <AButtons>
+          <Img src={icon[2]} size="3.5rem" />
+          카카오페이
+        </AButtons>
+
+        <AButtons>
+          <Img src={icon[3]} size="2rem" />
+          페이코
+        </AButtons>
+        <AButtons>
+          <Img src={icon[4]} size="1.7rem" />
+          네이버페이
+        </AButtons>
+        <AButtons>
+          <Img src={icon[5]} size="2.5rem" />
+          제로페이
+        </AButtons>
+        <AButtons>
+          <Img src={icon[6]} size="3.5rem" />
+          BC 페이북
+        </AButtons>
+        <AButtons>
+          <Img src={icon[7]} size="3.5rem" />
+          하나 Pay
+        </AButtons>
+        <AButtons>
+          <Img src={icon[8]} size="3.5rem" />
+          KB Pay
+        </AButtons>
+        <AButtons>
+          <Img src={icon[9]} size="3.5rem" />
+          애플페이
+        </AButtons>
+      </BButtonList>
+      <BButtonList>
+        <Buttons bMargin="0">
+          <Img src={icon[13]} size="3.5rem" />
+          쿠폰사용
+        </Buttons>
+        <Buttons bMargin="0">
+          <Img src={icon[14]} size="3.5rem" /> 4조카페
+          <br /> 선불카드
+        </Buttons>
+        <Buttons bMargin="0">
+          <Img src={icon[15]} size="3.5rem" />
+          cj기프트카드
+        </Buttons>
+      </BButtonList>
     </>
   );
 }

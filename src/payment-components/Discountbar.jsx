@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
 const Buttons = styled.div`
-  width: 30%;
+  border: 2px #cacaca solid;
+  border-radius: 5%;
+  color: black;
+  width: 31.5%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const H4 = styled.h4`
   color: #333;
-  text-align: center;
+  text-align: left;
 `;
 const AButtonList = styled.div`
   display: flex;
@@ -15,14 +22,33 @@ const AButtonList = styled.div`
   margin-top: 20px;
 `;
 
-function Discountbar() {
+const Img = styled.img`
+  height: ${(props) => props.size};
+  margin-right: 0.5rem;
+`;
+
+function Discountbar({ icon }) {
   return (
     <>
-      <H4>제휴 할인</H4>
+      <H4>제휴 할인을 선택해주세요</H4>
+
       <AButtonList>
-        <Buttons id="btnKT">KT</Buttons>
-        <Buttons id="btnSKT">SKT</Buttons>
-        <Buttons id="btnCJ">CJ ONE</Buttons>
+        <Buttons id="btnKT">
+          <Img src={icon[10]} size="2.5rem" />
+          KT <br />
+          통합 월1회
+        </Buttons>
+        <Buttons id="btnSKT">
+          <Img src={icon[11]} size="3.5rem" />
+          SKT
+          <br />
+          통합 월1회
+        </Buttons>
+        <Buttons id="btnCJ">
+          <Img src={icon[12]} size="2rem" />
+          CJ ONE <br />
+          포인트 사용
+        </Buttons>
       </AButtonList>
     </>
   );

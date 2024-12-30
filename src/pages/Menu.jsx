@@ -48,8 +48,9 @@ function Menu() {
       if (!response.ok) {
         throw new Error("데이터를 받아오지 못했습니다.");
       }
-      const data = await response.json();
+      const data1 = await response.json();
       // 이미지 가공 + 원본, 필터 state 세팅
+      const data = data1.item;
       fetchImage(data);
     } catch (err) {
       setError(err.message);

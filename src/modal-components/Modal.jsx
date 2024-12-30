@@ -1,5 +1,10 @@
 import styled from "styled-components";
+import CoffeeModal from "./CoffeeModal";
+import NonCoffeeModal from "./NonCoffeeModal";
 import DessertModal from "./DessertModal";
+// import GoodsModal from "./GoodsModal";
+import { useState } from "react";
+
 //모달배경 스타일
 const Container = styled.div`
   position: fixed;
@@ -96,10 +101,49 @@ const ItemPrice = styled.p`
   text-align: right;
   padding-right: 10px;
 `;
-const Img = styled.img`
-  width: 100px;
-`;
+
 function Modal({ onClose, readItem, addCart }) {
+  //state를 객체로 관리
+  const [options, setOptions] = useState({
+    temp: "none",
+    size: "none",
+    topping: "none",
+    icetemp: "none",
+    addmenu: "none",
+  });
+
+  //각 버튼 클릭 시 state 업데이트
+  const tempClick = (temp) => {
+    setOptions((prevState) => ({
+      ...prevState,
+      temp,
+    }));
+  };
+
+  const sizeClick = (size) => {
+    setOptions((prevState) => ({
+      ...prevState,
+      size,
+    }));
+  };
+  const toppingClick = (topping) => {
+    setOptions((prevState) => ({
+      ...prevState,
+      topping,
+    }));
+  };
+  const iceTempClick = (icetemp) => {
+    setOptions((prevState) => ({
+      ...prevState,
+      icetemp,
+    }));
+  };
+  const addCoffeeClick = (addmenu) => {
+    setOptions((prevState) => ({
+      ...prevState,
+      addmenu,
+    }));
+  };
   return (
     <Container>
       <Window>
@@ -114,8 +158,26 @@ function Modal({ onClose, readItem, addCart }) {
           <ItemPrice>₩ {readItem.price}</ItemPrice>
         </ItemInfo>
 
-        <DessertModal />
-        {/* <button onClick={() => addCart()}>고르기</button> */}
+        {/* 조건부 렌더링 */}
+        {readItem && readItem.type2 === "coffee" && (
+          <CoffeeModal
+            product={readItem}
+            tempClick={tempClick}
+            sizeClick={sizeClick}
+            toppingClick={toppingClick}
+            iceTempClick={iceTempClick}
+          />
+        )}
+        {readItem && readItem.type2 === "noneCoffee" && (
+          <NonCoffeeModal
+            product={readItem}
+            sizeClick={sizeClick}
+            iceTempClick={iceTempClick}
+          />
+        )}
+        {readItem && readItem.type === "dessert" && (
+          <DessertModal addCoffeeClick={addCoffeeClick} />
+        )}
       </Window>
     </Container>
   );
