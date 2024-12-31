@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Header from "../main-components/Header";
 import Itemlist from "../main-components/Itemlist";
 import Topbar from "../main-components/TopBar";
@@ -281,6 +281,20 @@ function Menu() {
       setCartItem(processingData);
     }
   };
+
+  const [count, setCount] = useState(10);
+  const interval = useRef();
+  useEffect(() => {
+    interval.current = setInterval(() => {
+      console.log(count);
+      setCount((prev) => prev - 1);
+    }, 1000);
+
+    if (count === 0) {
+      clearInterval(interval.current);
+    }
+    return () => clearInterval(interval.current);
+  });
 
   return (
     <div>
