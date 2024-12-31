@@ -293,8 +293,22 @@ function Menu() {
     if (count === 0) {
       clearInterval(interval.current);
     }
+    // console.log("render");
     return () => clearInterval(interval.current);
   });
+
+  useEffect(() => {
+    setCount(10);
+    console.log("itemlist render");
+  }, [itemList]);
+  useEffect(() => {
+    setCount(10);
+    console.log("cartitem render");
+  }, [cartItem]);
+  useEffect(() => {
+    setCount(10);
+    console.log("count render");
+  }, [open]);
 
   return (
     <div>

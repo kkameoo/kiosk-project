@@ -71,13 +71,13 @@ const BtnText2 = styled.div`
 function UnderBottombar({ paynow }) {
   return (
     <div className="actions text-center">
-      <DButton id="btn-danger">
-        {/*onclick="clearItems()"*/}
+      {/* <DButton id="btn-danger">
+        {/*onclick="clearItems()"
         <BtnText className="BtnText">삭제하기</BtnText>
         <BtnTwo className="BtnTwo">
           <BtnText2 className="BtnText2">X</BtnText2>
         </BtnTwo>
-      </DButton>
+      </DButton> */}
       <AButton id="btn-success">
         <BtnText className="BtnText">결제하기</BtnText>
         <BtnTwo className="BtnTwo" onClick={() => paynow()}>
