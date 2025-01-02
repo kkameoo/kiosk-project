@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Container = styled.div`
   margin-top: 40px;
@@ -18,6 +18,12 @@ const Button = styled.button`
   font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: blue;
+    `}
 `;
 
 // 공통 텍스트 섹션
@@ -48,7 +54,7 @@ const SectionDiv = styled.div`
   gap: 20px;
 `;
 
-function NonCoffeeModal({ sizeClick, iceTempClick }) {
+function NonCoffeeModal({ sizeClick, iceTempClick, options }) {
   // 공통 클릭 핸들러
   const handleSizeClick = (size) => {
     sizeClick(size);
@@ -64,9 +70,24 @@ function NonCoffeeModal({ sizeClick, iceTempClick }) {
       <Section>
         <SectionName>사이즈</SectionName>
         <SectionDiv>
-          <Button onClick={() => handleSizeClick("Large")}>Large</Button>
-          <Button onClick={() => handleSizeClick("Medium")}>Medium</Button>
-          <Button onClick={() => handleSizeClick("Small")}>Small</Button>
+          <Button
+            onClick={() => handleSizeClick("Large")}
+            isActive={options.size === "Large"}
+          >
+            Large
+          </Button>
+          <Button
+            onClick={() => handleSizeClick("Medium")}
+            isActive={options.size === "Medium"}
+          >
+            Medium
+          </Button>
+          <Button
+            onClick={() => handleSizeClick("Small")}
+            isActive={options.size === "Small"}
+          >
+            Small
+          </Button>
         </SectionDiv>
       </Section>
 
@@ -74,13 +95,22 @@ function NonCoffeeModal({ sizeClick, iceTempClick }) {
       <Section>
         <SectionName>얼음 선택</SectionName>
         <SectionDiv>
-          <Button onClick={() => handleIceTempClick("Bigice")}>
+          <Button
+            onClick={() => handleIceTempClick("Bigice")}
+            isActive={options.icetemp === "Bigice"}
+          >
             얼음 많이
           </Button>
-          <Button onClick={() => handleIceTempClick("Middleice")}>
+          <Button
+            onClick={() => handleIceTempClick("Middleice")}
+            isActive={options.icetemp === "Middleice"}
+          >
             기본 얼음
           </Button>
-          <Button onClick={() => handleIceTempClick("Smallice")}>
+          <Button
+            onClick={() => handleIceTempClick("Smallice")}
+            isActive={options.icetemp === "Smallice"}
+          >
             얼음 조금
           </Button>
         </SectionDiv>

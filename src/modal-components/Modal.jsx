@@ -117,10 +117,20 @@ function Modal({ onClose, readItem, addCart }) {
 
   // 옵션 변경 함수
   const handleOptionChange = (key, value) => {
-    setOptions((prevState) => ({
-      ...prevState,
-      [key]: value,
-    }));
+    if (key === "temp") {
+      setOptions(() => ({
+        [key]: value,
+        size: "none",
+        topping: "none",
+        icetemp: "none",
+        addmenu: "none",
+      }));
+    } else {
+      setOptions((prevState) => ({
+        ...prevState,
+        [key]: value,
+      }));
+    }
   };
 
   // 조건부 렌더링 컴포넌트
@@ -145,6 +155,7 @@ function Modal({ onClose, readItem, addCart }) {
             product={readItem}
             sizeClick={(value) => handleOptionChange("size", value)}
             iceTempClick={(value) => handleOptionChange("icetemp", value)}
+            options={options}
           />
         );
       }
@@ -153,6 +164,7 @@ function Modal({ onClose, readItem, addCart }) {
         return (
           <DessertModal
             addCoffeeClick={(value) => handleOptionChange("addmenu", value)}
+            options={options}
           />
         );
       }
