@@ -8,15 +8,7 @@ function App() {
   const Container = styled.div`
     margin: auto;
     width: 1140px;
-    color: rgba(255, 255, 255, 0.589);
-    background: linear-gradient(
-      to right,
-      black,
-      grey,
-      rgb(173, 173, 173),
-      grey,
-      black
-    );
+    background-color: #addfe5;
     ::after,
     ::before {
       box-sizing: border-box;

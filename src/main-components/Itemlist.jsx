@@ -2,40 +2,34 @@ import styled from "styled-components";
 import Modal from "../modal-components/modal";
 
 const BMenu = styled.div`
-  /* background: linear-gradient(135deg, rgb(71, 70, 70), rgb(173, 171, 171)); */
-  border: black;
+  background-color: #6ebdba;
+  width: 1050px;
+  margin-left: 45px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
+  /* padding: 30px; */
+  /* gap: 30px; */
 
-  /* flex-direction: column; */
-  transition: transform 0.2s;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 16px;
-  font-weight: 400;
-  /* height: 2200px; */
   /* justify-content: center; */
-  line-height: 24px;
-  /* text-align: center; */
-  text-size-adjust: 100%;
-  unicode-bidi: isolate;
-  /* width: 1110px; */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-`;
-const Menuitem = styled.div`
-  background: linear-gradient(135deg, rgb(71, 70, 70), rgb(173, 171, 171));
-  border: black;
-  unicode-bidi: isolate;
-  width: 270px;
-  height: 334px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
   /* justify-content: space-between; */
+  /* align-items: center; */
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 24px;
+  height: 800px;
+`;
+
+const Menuitem = styled.div`
+  background-color: #f3e6ed;
+  width: 300px;
+  height: 350px;
+  border-radius: 5px;
+  margin: 25px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
 
   .selected-item {
     display: flex;
@@ -46,23 +40,21 @@ const Menuitem = styled.div`
     border: 1px solid #ddd;
     border-radius: 5px;
     flex-direction: column;
-    transition: transform 0.2s;
   }
   .card-img-top {
     vertical-align: middle;
-    border-style: none;
     overflow-clip-margin: content-box;
     overflow: clip;
-    width: 270px;
+    width: 300px;
     height: 250px;
-    &:hover {
-      transform: scale(1.05);
-    }
+    border-radius: 5px 5px 0px 0px;
   }
   .card-body {
-    margin-top: 30px;
+    color: #121809;
+    margin-top: 20px;
     text-align: center;
     font-size: 20px;
+    line-height: 30px;
   }
 `;
 

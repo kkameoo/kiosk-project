@@ -1,89 +1,57 @@
-import styled from "styled-components";
-
+import { useState } from "react";
+import styled, { css } from "styled-components";
 const Btnwrqp = styled.div`
+  /* margin-bottom: 30px; */
   display: flex;
-  gap: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
+  gap: 25px;
+  padding-left: 45px;
 `;
 const Button = styled.button`
-  width: 150px;
-  text-align: center;
-  display: block;
-  gap: 40px;
-  padding: 1em 1.5em;
-  font-size: 1em;
-  font-weight: 400;
-  font-family: "Helvetica", "Arial", sans-serif;
-  border-radius: 4px;
   cursor: pointer;
-  appearance: none;
-  border: none;
-  margin-bottom: 20px;
-  white-space: nowrap;
-  border-color: #111;
-  color: #9c9c9c;
-  background: linear-gradient(180deg, #555 0%, #222 49%, #000 51%, #222 100%);
-  border-radius: 5px;
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5),
-    0px 1px 3px rgba(0, 0, 0, 0.3);
-
-  &:active {
-    background: linear-gradient(
-      to right,
-      rgba(20, 136, 204, 0.9),
-      rgba(43, 50, 178, 0.9)
-    );
-
-    &:focus {
-      outline: none;
-    }
-  }
-  #btnCallmenu0 {
-    margin-left: 40px;
-  }
+  width: 190px;
+  padding: 15px;
+  font-size: 23px;
+  font-weight: 600;
+  border-radius: 5px 5px 0 0;
+  background-color: #c6f0ee;
+  border: #f3e6ed;
+  color: #121809;
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: #6ebdba;
+    `};
 `;
-
 function Topbar({
   allButton,
-  juiceButton,
   dessertButton,
   coffeeButton,
   beverageButton,
   etcButton,
 }) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  // const handleClick = () => {
+  //   setSelectedIndex((bool) => !bool); // 같은 인덱스를 다시 클릭하면 해제
+  // };
   return (
-    <Btnwrqp className="menubuttonWrap">
+    <Btnwrqp>
       <Button
         id="btnCallmenu0"
         onClick={() => {
           allButton();
-          // paging(1);
+          setSelectedIndex(0);
         }}
+        isActive={selectedIndex === 0}
       >
-        전체보기
-      </Button>
-      <Button
-        id="btnCallmenu1"
-        onClick={() => {
-          juiceButton();
-        }}
-      >
-        음료
-      </Button>
-      <Button
-        id="btnCallmenu2"
-        onClick={() => {
-          dessertButton();
-        }}
-      >
-        디저트
+        전체 메뉴
       </Button>
       <Button
         id="btnCallmenu3"
         onClick={() => {
           coffeeButton();
+          setSelectedIndex(1);
         }}
+        isActive={selectedIndex === 1}
       >
         커피
       </Button>
@@ -91,15 +59,29 @@ function Topbar({
         id="btnCallmenu4"
         onClick={() => {
           beverageButton();
+          setSelectedIndex(2);
         }}
+        isActive={selectedIndex === 2}
       >
-        베버리지
+        논커피 (음료)
+      </Button>
+      <Button
+        id="btnCallmenu2"
+        onClick={() => {
+          dessertButton();
+          setSelectedIndex(3);
+        }}
+        isActive={selectedIndex === 3}
+      >
+        디저트
       </Button>
       <Button
         id="btnCallmenu5"
         onClick={() => {
           etcButton();
+          setSelectedIndex(4);
         }}
+        isActive={selectedIndex === 4}
       >
         기타
       </Button>

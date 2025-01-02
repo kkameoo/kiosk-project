@@ -259,25 +259,25 @@ function CoffeeModal({ tempClick, sizeClick, toppingClick, iceTempClick }) {
         <Toppingdiv>
           <Vanilla
             onClick={() => {
-              toppingClick("Vanilla");
+              toppingClick("바닐라 시럽");
             }}
           >
             바닐라
           </Vanilla>
           <Hazelut
             onClick={() => {
-              toppingClick("Hazelut");
+              toppingClick("헤이즐넛 시럽");
             }}
           >
             헤이즐넛
           </Hazelut>
-          <Notopping
+          {/* <Notopping
             onClick={() => {
-              toppingClick("No Topping");
+              toppingClick("X");
             }}
           >
             X (없음)
-          </Notopping>
+          </Notopping> */}
         </Toppingdiv>
       </Topping>
       <Icetemp>
@@ -285,21 +285,21 @@ function CoffeeModal({ tempClick, sizeClick, toppingClick, iceTempClick }) {
         <Icetempdiv>
           <Bigice
             onClick={() => {
-              iceTempClick("Bigice");
+              iceTempClick("얼음 많이");
             }}
           >
             얼음 많이
           </Bigice>
           <Middleice
             onClick={() => {
-              iceTempClick("Middleice");
+              iceTempClick("기본");
             }}
           >
             기본 얼음
           </Middleice>
           <Smallice
             onClick={() => {
-              iceTempClick("Smallice");
+              iceTempClick("얼음 조금");
             }}
           >
             얼음 조금

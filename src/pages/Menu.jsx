@@ -4,7 +4,7 @@ import Itemlist from "../main-components/Itemlist";
 import Topbar from "../main-components/TopBar";
 import Underbar from "../main-components/Underbar";
 import UnderBottombar from "../main-components/UnderBottombar";
-import UnderMidbar from "../main-components/UnderMidbar";
+
 import ListPage from "../main-components/ListPage";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Modal from "../modal-components/modal";
@@ -34,6 +34,8 @@ function Menu() {
   const [readItem, setReadItem] = useState(null);
   // 선택된 총가격
   const [totalPrice, setTotalPrice] = useState(0);
+  // 카운트 시간
+  const [count, setCount] = useState(180);
 
   useEffect(() => {
     // console.log("필터 변경");
@@ -57,12 +59,12 @@ function Menu() {
     }
   };
 
-  // 페이지  넘버 클릭 시 8개 분량의 콘텐츠가 나오도록 조정 + 현재 페이지 세팅
+  // 페이지  넘버 클릭 시 6개 분량의 콘텐츠가 나오도록 조정 + 현재 페이지 세팅
   const paging = (page) => {
     let processingData = [];
     let num = 0;
     setItemList([]);
-    for (let i = (page - 1) * 8; i < page * 8; i++) {
+    for (let i = (page - 1) * 6; i < page * 6; i++) {
       if (filteredList[i] === undefined) {
         console.log("no contents");
       } else {
@@ -88,7 +90,7 @@ function Menu() {
   // 페이지 갯수 세팅
   const makeNumber = (data) => {
     // console.log(data.length);
-    let pageNum = Math.ceil(data.length / 8);
+    let pageNum = Math.ceil(data.length / 6);
     // console.log(pageNum);
     let container = [];
     let j = 0;
@@ -282,7 +284,6 @@ function Menu() {
     }
   };
 
-  const [count, setCount] = useState(10);
   const interval = useRef();
   useEffect(() => {
     interval.current = setInterval(() => {
@@ -298,15 +299,15 @@ function Menu() {
   });
 
   useEffect(() => {
-    setCount(10);
+    setCount(180);
     console.log("itemlist render");
   }, [itemList]);
   useEffect(() => {
-    setCount(10);
+    setCount(180);
     console.log("cartitem render");
   }, [cartItem]);
   useEffect(() => {
-    setCount(10);
+    setCount(180);
     console.log("count render");
   }, [open]);
 
@@ -329,9 +330,17 @@ function Menu() {
         paging={paging}
         prevButton={prevButton}
         nextButton={nextButton}
+        readPage={readPage}
       />
-      <Underbar cartItem={cartItem} plusCart={plusCart} minusCart={minusCart} />
-      <UnderMidbar totalPrice={totalPrice} />
+      <Underbar
+        cartItem={cartItem}
+        plusCart={plusCart}
+        minusCart={minusCart}
+        paynow={paynow}
+        count={count}
+        totalPrice={totalPrice}
+      />
+
       <UnderBottombar paynow={paynow} />
     </div>
   );

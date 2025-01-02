@@ -16,6 +16,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 `;
 //모달창 스타일
 const Window = styled.div`

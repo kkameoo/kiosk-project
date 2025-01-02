@@ -18,7 +18,7 @@ const Container = styled.div`
 `;
 
 const PaymentContainer = styled.div`
-  max-width: 600px;
+  /* max-width: 600px; */
   margin: 30px auto;
   /* padding: 0px 20px 20px 20px; */
   background-color: white;

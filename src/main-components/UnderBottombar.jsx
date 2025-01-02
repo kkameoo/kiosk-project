@@ -3,11 +3,14 @@ import styled from "styled-components";
 
 const Button = styled.div`
   background: #3d4c53;
-  margin: 20px auto;
+  margin-left: 880px;
+  margin-top: -120px;
+  /* display: flex; */
   width: 200px;
-  height: 50px;
+  height: 100px;
   overflow: hidden;
-  text-align: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   transition: 0.2s;
   cursor: pointer;
   border-radius: 3px;
@@ -19,10 +22,6 @@ const Button = styled.div`
     left: 0px;
   }
 
-  &:hover .BtnText {
-    margin-left: 65px;
-  }
-
   &:active {
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
   }
@@ -32,34 +31,32 @@ const DButton = styled(Button)`
   .BtnTwo {
     background-color: red;
   }
-  .btnText2 {
-    margin-top: 58px;
-    color: #fff;
-  }
 `;
 
 const AButton = styled(Button)`
   .BtnTwo {
     background-color: #26a69a;
   }
-  .btnText2 {
-    margin-top: 58px;
-    color: #fff;
-  }
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const BtnTwo = styled.div`
-  position: relative;
-  width: 200px;
-  height: 100px;
-  margin-top: -21px;
-  padding-top: 2px;
-  background: #26a69a;
-  left: -200px;
-  transition: 0.3s;
-`;
+// const BtnTwo = styled.div`
+//   position: relative;
+//   width: 200px;
+//   height: 100px;
+//   margin-top: -21px;
+//   padding-top: 2px;
+//   background: #26a69a;
+//   left: -200px;
+//   transition: 0.3s;
+// `;
 
 const BtnText = styled.div`
+  font-size: 30px;
   color: white;
   transition: 0.3s;
 `;
@@ -69,22 +66,6 @@ const BtnText2 = styled.div`
   color: #fff;
 `;
 function UnderBottombar({ paynow }) {
-  return (
-    <div className="actions text-center">
-      {/* <DButton id="btn-danger">
-        {/*onclick="clearItems()"
-        <BtnText className="BtnText">삭제하기</BtnText>
-        <BtnTwo className="BtnTwo">
-          <BtnText2 className="BtnText2">X</BtnText2>
-        </BtnTwo>
-      </DButton> */}
-      <AButton id="btn-success">
-        <BtnText className="BtnText">결제하기</BtnText>
-        <BtnTwo className="BtnTwo" onClick={() => paynow()}>
-          눌러!
-        </BtnTwo>
-      </AButton>
-    </div>
-  );
+  return <div className="actions text-center"></div>;
 }
 export default UnderBottombar;
