@@ -1,17 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
 const Wrap = styled.div`
   display: flex;
   position: relative;
 `;
 const Btn = styled.button`
-  width: 300px;
+  width: 320px;
   height: 400px;
   position: absolute;
-  bottom: 100px;
-  left: 20%;
-  font-size: 40px;
+  bottom: 300px;
+  left: 17%;
+  font-size: 50px;
   font-weight: 600;
   border-radius: 10px;
   border: 5px solid black;
@@ -23,16 +22,15 @@ const Btn = styled.button`
     transform: scale(1.05);
   }
 `;
-
 const Btn2 = styled(Btn)`
-  left: 53%;
+  left: 55%;
   /* right: 20%; */
 `;
 const Img = styled.img`
-  width: 100%;
-  height: 65%;
+  width: 90%;
+  height: 55%;
+  margin-bottom: 20px;
 `;
-
 function Footer() {
   const imgUrl = new URL("../images/icon/take-away.png", import.meta.url).href;
   const imgUrl2 = new URL("../images/icon/coffee-cup.png", import.meta.url)

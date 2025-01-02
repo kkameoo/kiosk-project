@@ -12,12 +12,14 @@ const BMenu = styled.div`
 
   /* justify-content: center; */
   /* justify-content: space-between; */
+  /* align-items: center; */
   align-content: flex-start;
   box-sizing: border-box;
   font-size: 16px;
   font-weight: 800;
   line-height: 24px;
   height: 1200px;
+  border-radius: 0 0 5px 5px;
 `;
 
 const Menuitem = styled.div`
@@ -74,7 +76,8 @@ function Itemlist({ items, openModal }) {
             <img src={item.image} alt={item.name} className="card-img-top" />
             <div className="card-body">
               <span className="card-title">{item.name}</span>
-              <span className="card-text">{item.price}원</span>
+              <br />
+              <span className="card-text">{item.price.toLocaleString()}원</span>
             </div>
           </Menuitem>
         ))}

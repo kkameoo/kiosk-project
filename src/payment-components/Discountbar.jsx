@@ -5,21 +5,26 @@ const Buttons = styled.div`
   border-radius: 5%;
   color: black;
   width: 31.5%;
-  height: 5rem;
+  height: 13rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
 `;
 
-const H4 = styled.h4`
+const Span = styled.span`
   color: #333;
   text-align: left;
+  font-weight: bold;
+  font-size: 35px;
 `;
 const AButtonList = styled.div`
   display: flex;
   flex-wrap: wrap; /* 버튼들이 3개씩 줄바꿈 되도록 설정 */
   justify-content: space-between; /* 각 줄마다 버튼들이 균등하게 배치되도록 */
   margin-top: 20px;
+  margin-bottom: 100px;
 `;
 
 const Img = styled.img`
@@ -30,22 +35,22 @@ const Img = styled.img`
 function Discountbar({ icon }) {
   return (
     <>
-      <H4>제휴 할인을 선택해주세요</H4>
+      <Span>제휴 할인을 선택해주세요</Span>
 
       <AButtonList>
         <Buttons id="btnKT">
-          <Img src={icon[10]} size="2.5rem" />
+          <Img src={icon[10]} size="7.5rem" />
           KT <br />
           통합 월1회
         </Buttons>
         <Buttons id="btnSKT">
-          <Img src={icon[11]} size="3.5rem" />
+          <Img src={icon[11]} size="8.5rem" />
           SKT
           <br />
           통합 월1회
         </Buttons>
         <Buttons id="btnCJ">
-          <Img src={icon[12]} size="2rem" />
+          <Img src={icon[12]} size="4rem" />
           CJ ONE <br />
           포인트 사용
         </Buttons>

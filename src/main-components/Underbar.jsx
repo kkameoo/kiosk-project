@@ -1,17 +1,18 @@
 import styled from "styled-components";
 const Underbox = styled.div`
-  margin-left: 70px;
-  width: 1000px;
+  margin-left: 45px;
+  width: 1050px;
   height: 300px auto;
   /* position: relative; */
   background-color: #e3eef0;
+  border-radius: 5px;
   display: flex;
 `;
 //선택한상품 BOX
 const Container = styled.div`
   width: 800px;
   margin: 10px;
-  background-color: #aeaeae;
+  /* background-color: #aeaeae; */
 `;
 const SelectName = styled.div`
   width: 700px;
@@ -189,7 +190,7 @@ function Underbar({
               {item.count}
               <button onClick={() => minusCart(index)}>-</button>
             </CountButton>
-            <MenuPrice>{item.price}원</MenuPrice>
+            <MenuPrice>{item.price.toLocaleString()}원</MenuPrice>
             <Options>
               {item && item.type2 === "coffee" && (
                 <div>
@@ -207,7 +208,14 @@ function Underbar({
               )}
               {item && item.type === "dessert" && (
                 <div>
-                  {item.option.addmenu !== "none" && item.option.addmenu}
+                  {item.option.addmenu !== "none" && (
+                    <>
+                      {item.option.addmenu === "HotCoffee" &&
+                        item.option.addmenu + "+ 500"}
+                      {item.option.addmenu === "IceCoffee" &&
+                        item.option.addmenu + "+ 1000"}
+                    </>
+                  )}
                 </div>
               )}
             </Options>

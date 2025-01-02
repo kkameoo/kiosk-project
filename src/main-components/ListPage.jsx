@@ -37,11 +37,12 @@ const Button1 = styled(Button)`
   top: -760px;
   width: 2.5rem;
   height: 20rem;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 40px;
   font-weight: bold;
   color: #7b7b7b;
-  background-color: #a9e2e1;
+
+  background-color: white;
   border: 1px solid #aab8d3;
 `;
 const Button2 = styled(Button)`
@@ -50,11 +51,11 @@ const Button2 = styled(Button)`
   top: -760px;
   width: 2.5rem;
   height: 20rem;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 40px;
   font-weight: bold;
   color: #7b7b7b;
-  background-color: #a9e2e1;
+  background-color: white;
   border: 1px solid #aab8d3;
 `;
 function ListPage({ pages, paging, prevButton, nextButton, readPage }) {

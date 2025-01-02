@@ -36,8 +36,8 @@ const CafeName = styled.div`
 const Img = styled.img`
   width: 3rem;
   cursor: pointer;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 30px;
+  margin-left: 20px;
 `;
 
 function Header() {

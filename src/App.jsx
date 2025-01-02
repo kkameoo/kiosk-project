@@ -8,13 +8,14 @@ function App() {
   const Container = styled.div`
     margin: auto;
     width: 1140px;
+    height: 1900px;
     background-color: #addfe5;
+    border-radius: 20px;
     ::after,
     ::before {
       box-sizing: border-box;
     }
   `;
-
   return (
     <Container className="container mt-5">
       {/* <NavLink to="/">menuPage</NavLink>

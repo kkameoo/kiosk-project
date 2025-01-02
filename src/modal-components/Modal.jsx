@@ -183,7 +183,7 @@ function Modal({ onClose, readItem, addCart }) {
           <ItemImg src={readItem.image} alt={readItem.name} />
           <ItemName>{readItem.name}</ItemName>
           <ItemCount>수량 넣는곳(해야 함)</ItemCount>
-          <ItemPrice>₩ {readItem.price}</ItemPrice>
+          <ItemPrice>₩ {readItem.price.toLocaleString()}</ItemPrice>
         </ItemInfo>
 
         {renderModalContent()}
