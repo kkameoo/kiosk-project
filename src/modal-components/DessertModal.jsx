@@ -5,31 +5,23 @@ const Container = styled.div`
   width: 600px;
   height: 500px;
 `;
-//메뉴 추가 옵션
+// 메뉴 추가 옵션
 const AddMenuName = styled.div`
   width: 300px;
   height: 40px;
   font-size: 20px;
 `;
+
+// 버튼 그룹
 const AddMenu = styled.div`
   width: 600px;
   height: 100px;
   display: flex;
   gap: 20px;
 `;
-const HotCoffee = styled.button`
-  display: flex;
-  width: 100px;
-  height: 60px;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 10px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-`;
-const IceCoffee = styled.button`
+
+// 공통 버튼 스타일
+const CoffeeButton = styled.button`
   display: flex;
   width: 100px;
   height: 60px;
@@ -43,26 +35,24 @@ const IceCoffee = styled.button`
 `;
 
 function DessertModal({ addCoffeeClick }) {
+  // 버튼 클릭 핸들러
+  const handleClick = (coffeeType) => {
+    addCoffeeClick(coffeeType);
+  };
+
   return (
     <Container>
       <AddMenuName>메뉴 추가</AddMenuName>
       <AddMenu>
-        <HotCoffee
-          onClick={() => {
-            addCoffeeClick("HotCoffee");
-          }}
-        >
+        <CoffeeButton onClick={() => handleClick("HotCoffee")}>
           뜨아 +500
-        </HotCoffee>
-        <IceCoffee
-          onClick={() => {
-            addCoffeeClick("IceCoffee");
-          }}
-        >
+        </CoffeeButton>
+        <CoffeeButton onClick={() => handleClick("IceCoffee")}>
           아아 +1000
-        </IceCoffee>
+        </CoffeeButton>
       </AddMenu>
     </Container>
   );
 }
+
 export default DessertModal;

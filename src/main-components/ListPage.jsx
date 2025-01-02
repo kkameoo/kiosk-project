@@ -14,7 +14,7 @@ const BtnContainer = styled.div`
   /* background-color: blue; */
 `;
 const Button = styled.button`
-  /* background: #3D4C53; */
+  /* background: #3d4c53; */
   background: transparent;
   margin: 0.5rem;
   width: 5rem;
@@ -24,9 +24,6 @@ const Button = styled.button`
   transition: 0.2s;
   cursor: pointer;
   border-radius: 10px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5),
-    0px 1px 3px rgba(0, 0, 0, 0.3);
   font-size: 20px;
   ${(props) =>
     props.isActive &&
@@ -35,32 +32,30 @@ const Button = styled.button`
     `}
 `;
 const Button1 = styled(Button)`
-  left: -5.5px;
   position: absolute;
-  top: -500px;
+  left: -4.5px;
+  top: -760px;
   width: 2.5rem;
-  height: 8rem;
-  border-radius: 10px;
+  height: 20rem;
+  border-radius: 5px;
   font-size: 40px;
   font-weight: bold;
-  color: #656565;
-  /* height: 100px; */
-  border: 4px solid gray;
-  /* text-align: center; */
+  color: #7b7b7b;
+  background-color: #a9e2e1;
+  border: 1px solid #aab8d3;
 `;
 const Button2 = styled(Button)`
-  right: -5.5px;
   position: absolute;
-  top: -500px;
+  right: -5.5px;
+  top: -760px;
   width: 2.5rem;
-  height: 8rem;
-  border-radius: 10px;
+  height: 20rem;
+  border-radius: 5px;
   font-size: 40px;
   font-weight: bold;
-  color: #656565;
-  /* height: 100px; */
-  border: 4px solid gray;
-  /* text-align: center; */
+  color: #7b7b7b;
+  background-color: #a9e2e1;
+  border: 1px solid #aab8d3;
 `;
 function ListPage({ pages, paging, prevButton, nextButton, readPage }) {
   return (

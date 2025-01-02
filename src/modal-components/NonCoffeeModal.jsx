@@ -5,117 +5,9 @@ const Container = styled.div`
   width: 600px;
   height: 400px;
 `;
-//Size
-const Size = styled.div`
-  position: relative;
-  margin-top: 20px;
-  width: 600px;
-  height: 70px;
-`;
-const Sizename = styled.div`
-  display: flex;
-  width: 100px;
-  height: 70px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-`;
-const Sizediv = styled.div`
-  position: absolute;
-  left: 50px;
-  bottom: 5px;
-  width: 400px;
-  margin-left: 100px;
-  display: flex;
-  gap: 20px;
-`;
-const Large = styled.button`
-  display: flex;
-  width: 100px;
-  height: 60px;
-  background-color: white;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 10px;
-`;
-const Medium = styled.button`
-  display: flex;
-  width: 100px;
-  height: 60px;
-  background-color: white;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 10px;
-`;
-const Small = styled.button`
-  display: flex;
-  width: 100px;
-  height: 60px;
-  background-color: white;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 10px;
-`;
-//Icetemp
-const Icetemp = styled.div`
-  margin-top: 20px;
-  position: relative;
-  width: 600px;
-  height: 70px;
-`;
-const Icetempname = styled.div`
-  display: flex;
-  width: 100px;
-  height: 70px;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-`;
-const Icetempdiv = styled.div`
-  position: absolute;
-  left: 50px;
-  bottom: 5px;
-  width: 400px;
-  margin-left: 100px;
-  display: flex;
-  gap: 20px;
-`;
-const Bigice = styled.button`
-  display: flex;
-  width: 100px;
-  height: 60px;
-  background-color: white;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 10px;
-`;
-const Middleice = styled.button`
-  display: flex;
-  width: 100px;
-  height: 60px;
-  background-color: white;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 10px;
-`;
-const Smallice = styled.button`
+
+// 공통 버튼 스타일
+const Button = styled.button`
   display: flex;
   width: 100px;
   height: 60px;
@@ -128,62 +20,73 @@ const Smallice = styled.button`
   border-radius: 10px;
 `;
 
+// 공통 텍스트 섹션
+const Section = styled.div`
+  margin-top: 20px;
+  position: relative;
+  width: 600px;
+  height: 70px;
+`;
+
+const SectionName = styled.div`
+  display: flex;
+  width: 100px;
+  height: 70px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+`;
+
+const SectionDiv = styled.div`
+  position: absolute;
+  left: 50px;
+  bottom: 5px;
+  width: 400px;
+  margin-left: 100px;
+  display: flex;
+  gap: 20px;
+`;
+
 function NonCoffeeModal({ sizeClick, iceTempClick }) {
+  // 공통 클릭 핸들러
+  const handleSizeClick = (size) => {
+    sizeClick(size);
+  };
+
+  const handleIceTempClick = (iceTemp) => {
+    iceTempClick(iceTemp);
+  };
+
   return (
     <Container>
-      <Size>
-        <Sizename>사이즈</Sizename>
-        <Sizediv>
-          <Large
-            onClick={() => {
-              sizeClick("Large");
-            }}
-          >
-            Large
-          </Large>
-          <Medium
-            onClick={() => {
-              sizeClick("Medium");
-            }}
-          >
-            Medium
-          </Medium>
-          <Small
-            onClick={() => {
-              sizeClick("Small");
-            }}
-          >
-            Small
-          </Small>
-        </Sizediv>
-      </Size>
-      <Icetemp>
-        <Icetempname>얼음 선택</Icetempname>
-        <Icetempdiv>
-          <Bigice
-            onClick={() => {
-              iceTempClick("Bigice");
-            }}
-          >
+      {/* 사이즈 선택 */}
+      <Section>
+        <SectionName>사이즈</SectionName>
+        <SectionDiv>
+          <Button onClick={() => handleSizeClick("Large")}>Large</Button>
+          <Button onClick={() => handleSizeClick("Medium")}>Medium</Button>
+          <Button onClick={() => handleSizeClick("Small")}>Small</Button>
+        </SectionDiv>
+      </Section>
+
+      {/* 얼음 선택 */}
+      <Section>
+        <SectionName>얼음 선택</SectionName>
+        <SectionDiv>
+          <Button onClick={() => handleIceTempClick("Bigice")}>
             얼음 많이
-          </Bigice>
-          <Middleice
-            onClick={() => {
-              iceTempClick("Middleice");
-            }}
-          >
+          </Button>
+          <Button onClick={() => handleIceTempClick("Middleice")}>
             기본 얼음
-          </Middleice>
-          <Smallice
-            onClick={() => {
-              iceTempClick("Smallice");
-            }}
-          >
+          </Button>
+          <Button onClick={() => handleIceTempClick("Smallice")}>
             얼음 조금
-          </Smallice>
-        </Icetempdiv>
-      </Icetemp>
+          </Button>
+        </SectionDiv>
+      </Section>
     </Container>
   );
 }
+
 export default NonCoffeeModal;

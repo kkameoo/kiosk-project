@@ -64,7 +64,7 @@ function Menu() {
     let processingData = [];
     let num = 0;
     setItemList([]);
-    for (let i = (page - 1) * 6; i < page * 6; i++) {
+    for (let i = (page - 1) * 9; i < page * 9; i++) {
       if (filteredList[i] === undefined) {
         console.log("no contents");
       } else {
@@ -90,7 +90,7 @@ function Menu() {
   // 페이지 갯수 세팅
   const makeNumber = (data) => {
     // console.log(data.length);
-    let pageNum = Math.ceil(data.length / 6);
+    let pageNum = Math.ceil(data.length / 9);
     // console.log(pageNum);
     let container = [];
     let j = 0;
@@ -204,7 +204,13 @@ function Menu() {
   useMemo(() => {
     let price = 0;
     cartItem.map((item) => {
-      price += item.price * item.count;
+      if (item.option.addmenu === "IceCoffee") {
+        price += (item.price + 1000) * item.count;
+      } else if (item.option.addmenu === "HotCoffee") {
+        price += (item.price + 500) * item.count;
+      } else {
+        price += item.price * item.count;
+      }
     });
     setTotalPrice(price);
   }, [cartItem]);
@@ -264,6 +270,7 @@ function Menu() {
   };
   const minusCart = (num) => {
     let processingData = [];
+
     if (cartItem[num].count === 1) {
       processingData = [];
       cartItem.map((item, index) => {
@@ -291,8 +298,9 @@ function Menu() {
       setCount((prev) => prev - 1);
     }, 1000);
 
-    if (count === 0) {
+    if (count < 1) {
       clearInterval(interval.current);
+      // navigate("/home");
     }
     // console.log("render");
     return () => clearInterval(interval.current);
@@ -341,7 +349,7 @@ function Menu() {
         totalPrice={totalPrice}
       />
 
-      <UnderBottombar paynow={paynow} />
+      {/* <UnderBottombar paynow={paynow} /> */}
     </div>
   );
 }

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import CoffeeModal from "./CoffeeModal";
 import NonCoffeeModal from "./NonCoffeeModal";
 import DessertModal from "./DessertModal";
-// import GoodsModal from "./GoodsModal";
 import { useState } from "react";
 
 //모달배경 스타일
@@ -18,6 +17,7 @@ const Container = styled.div`
   align-items: center;
   z-index: 100;
 `;
+
 //모달창 스타일
 const Window = styled.div`
   position: relative;
@@ -26,10 +26,10 @@ const Window = styled.div`
   border-radius: 8px;
   box-shadow: inset;
   padding: 20px;
-  position: relative;
   width: 600px;
   height: 800px;
 `;
+
 //취소,확인 버튼
 const Button = styled.div`
   position: absolute;
@@ -41,17 +41,9 @@ const Button = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-//취소
-const Nbutton = styled.button`
-  background: white;
-  font-size: 20px;
-  width: 45%;
-  height: 100%;
-  cursor: pointer;
-  border-radius: 10px;
-`;
-//확인
-const Ybutton = styled.button`
+
+//공통 버튼 스타일
+const ModalButton = styled.button`
   background: white;
   font-size: 20px;
   width: 45%;
@@ -67,6 +59,7 @@ const ItemInfo = styled.div`
   height: 150px;
   margin-top: 10px;
 `;
+
 //이미지
 const ItemImg = styled.img`
   width: 160px;
@@ -75,6 +68,7 @@ const ItemImg = styled.img`
   margin-left: 20px;
   border: 1px solid;
 `;
+
 //음료이름
 const ItemName = styled.p`
   position: absolute;
@@ -85,6 +79,7 @@ const ItemName = styled.p`
   right: 0;
   top: -30px;
 `;
+
 //수량
 const ItemCount = styled.p`
   position: absolute;
@@ -92,6 +87,7 @@ const ItemCount = styled.p`
   right: 37%;
   bottom: -16px;
 `;
+
 //금액
 const ItemPrice = styled.p`
   position: absolute;
@@ -104,7 +100,7 @@ const ItemPrice = styled.p`
 `;
 
 function Modal({ onClose, readItem, addCart }) {
-  //state를 객체로 관리
+  // 상태를 객체로 관리
   const [options, setOptions] = useState({
     temp: "none",
     size: "none",
@@ -113,72 +109,65 @@ function Modal({ onClose, readItem, addCart }) {
     addmenu: "none",
   });
 
-  //각 버튼 클릭 시 state 업데이트
-  const tempClick = (temp) => {
+  // 옵션 변경 함수
+  const handleOptionChange = (key, value) => {
     setOptions((prevState) => ({
       ...prevState,
-      temp,
+      [key]: value,
     }));
   };
 
-  const sizeClick = (size) => {
-    setOptions((prevState) => ({
-      ...prevState,
-      size,
-    }));
+  // 조건부 렌더링 컴포넌트
+  const renderModalContent = () => {
+    if (readItem) {
+      if (readItem.type2 === "coffee") {
+        return (
+          <CoffeeModal
+            product={readItem}
+            tempClick={(value) => handleOptionChange("temp", value)}
+            sizeClick={(value) => handleOptionChange("size", value)}
+            toppingClick={(value) => handleOptionChange("topping", value)}
+            iceTempClick={(value) => handleOptionChange("icetemp", value)}
+          />
+        );
+      }
+
+      if (readItem.type2 === "noneCoffee") {
+        return (
+          <NonCoffeeModal
+            product={readItem}
+            sizeClick={(value) => handleOptionChange("size", value)}
+            iceTempClick={(value) => handleOptionChange("icetemp", value)}
+          />
+        );
+      }
+
+      if (readItem.type === "dessert") {
+        return (
+          <DessertModal
+            addCoffeeClick={(value) => handleOptionChange("addmenu", value)}
+          />
+        );
+      }
+    }
+    return null;
   };
-  const toppingClick = (topping) => {
-    setOptions((prevState) => ({
-      ...prevState,
-      topping,
-    }));
-  };
-  const iceTempClick = (icetemp) => {
-    setOptions((prevState) => ({
-      ...prevState,
-      icetemp,
-    }));
-  };
-  const addCoffeeClick = (addmenu) => {
-    setOptions((prevState) => ({
-      ...prevState,
-      addmenu,
-    }));
-  };
+
   return (
     <Container>
       <Window>
         <Button>
-          <Nbutton onClick={() => onClose()}>취소</Nbutton>
-          <Ybutton onClick={() => addCart(options)}>선택 완료</Ybutton>
+          <ModalButton onClick={onClose}>취소</ModalButton>
+          <ModalButton onClick={() => addCart(options)}>선택 완료</ModalButton>
         </Button>
         <ItemInfo>
-          <ItemImg src={readItem.image}></ItemImg>
+          <ItemImg src={readItem.image} alt={readItem.name} />
           <ItemName>{readItem.name}</ItemName>
           <ItemCount>수량 넣는곳(해야 함)</ItemCount>
           <ItemPrice>₩ {readItem.price}</ItemPrice>
         </ItemInfo>
 
-        {/* 조건부 렌더링 */}
-        {readItem && readItem.type2 === "coffee" && (
-          <CoffeeModal
-            product={readItem}
-            tempClick={tempClick}
-            sizeClick={sizeClick}
-            toppingClick={toppingClick}
-            iceTempClick={iceTempClick}
-          />
-        )}
-        {readItem && readItem.type2 === "noneCoffee" && (
-          <NonCoffeeModal
-            product={readItem}
-            sizeClick={sizeClick}
-            iceTempClick={iceTempClick}
-          />
-        )}
-        {readItem && readItem.type === "dessert" && (
-          <DessertModal addCoffeeClick={addCoffeeClick} />
-        )}
+        {renderModalContent()}
       </Window>
     </Container>
   );

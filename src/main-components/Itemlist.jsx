@@ -17,7 +17,7 @@ const BMenu = styled.div`
   font-size: 16px;
   font-weight: 800;
   line-height: 24px;
-  height: 800px;
+  height: 1200px;
 `;
 
 const Menuitem = styled.div`
