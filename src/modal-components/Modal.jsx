@@ -109,6 +109,12 @@ function Modal({ onClose, readItem, addCart }) {
     addmenu: "none",
   });
 
+  const [selectedSize, setSelectedSize] = useState(0);
+
+  const handleSize = (data) => {
+    setSelectedSize(data);
+  };
+
   // 옵션 변경 함수
   const handleOptionChange = (key, value) => {
     setOptions((prevState) => ({
@@ -128,6 +134,7 @@ function Modal({ onClose, readItem, addCart }) {
             sizeClick={(value) => handleOptionChange("size", value)}
             toppingClick={(value) => handleOptionChange("topping", value)}
             iceTempClick={(value) => handleOptionChange("icetemp", value)}
+            options={options}
           />
         );
       }

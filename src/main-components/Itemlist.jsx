@@ -12,7 +12,7 @@ const BMenu = styled.div`
 
   /* justify-content: center; */
   /* justify-content: space-between; */
-  /* align-items: center; */
+  align-content: flex-start;
   box-sizing: border-box;
   font-size: 16px;
   font-weight: 800;

@@ -17,11 +17,11 @@ function App() {
 
   return (
     <Container className="container mt-5">
-      <NavLink to="/">menuPage</NavLink>
+      {/* <NavLink to="/">menuPage</NavLink>
       <br />
       <NavLink to="/home">HomePage</NavLink>
       <br />
-      <NavLink to="/payment">Payment</NavLink>
+      <NavLink to="/payment">Payment</NavLink> */}
       <Routes>
         <Route path="/" element={<Menu />} />
         <Route path="/home" element={<Home />} />

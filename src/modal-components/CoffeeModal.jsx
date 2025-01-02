@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Container = styled.div`
   margin-top: 20px;
@@ -20,6 +20,11 @@ const TempButton = styled.button`
   background-color: white;
   cursor: pointer;
   border-radius: 10px;
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: blue;
+    `}
 `;
 
 // 공통 버튼 스타일
@@ -39,6 +44,12 @@ const Button = styled.button`
     background-color: gray;
     cursor: not-allowed;
   }
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: blue;
+    `}
 `;
 
 // 공통 섹션 스타일
@@ -75,7 +86,13 @@ const ButtonGroup = styled.div`
   }
 `;
 
-function CoffeeModal({ tempClick, sizeClick, toppingClick, iceTempClick }) {
+function CoffeeModal({
+  tempClick,
+  sizeClick,
+  toppingClick,
+  iceTempClick,
+  options,
+}) {
   //Hot/Ice 상태 관리
   const [isIceDisabled, setIceDisabled] = useState(false);
 
@@ -116,6 +133,7 @@ function CoffeeModal({ tempClick, sizeClick, toppingClick, iceTempClick }) {
             onClick={() => {
               handleTempClick("HOT");
             }}
+            isActive={options.temp === "HOT"}
           >
             HOT
           </TempButton>
@@ -123,6 +141,7 @@ function CoffeeModal({ tempClick, sizeClick, toppingClick, iceTempClick }) {
             onClick={() => {
               handleTempClick("ICE");
             }}
+            isActive={options.temp === "ICE"}
           >
             ICE
           </TempButton>
@@ -133,9 +152,24 @@ function CoffeeModal({ tempClick, sizeClick, toppingClick, iceTempClick }) {
       <Section marginTop="20px">
         <SectionName>사이즈</SectionName>
         <ButtonGroup>
-          <Button onClick={() => handleClick("size", "Large")}>Large</Button>
-          <Button onClick={() => handleClick("size", "Medium")}>Medium</Button>
-          <Button onClick={() => handleClick("size", "Small")}>Small</Button>
+          <Button
+            onClick={() => handleClick("size", "Large")}
+            isActive={options.size === "Large"}
+          >
+            Large
+          </Button>
+          <Button
+            onClick={() => handleClick("size", "Medium")}
+            isActive={options.size === "Medium"}
+          >
+            Medium
+          </Button>
+          <Button
+            onClick={() => handleClick("size", "Small")}
+            isActive={options.size === "Small"}
+          >
+            Small
+          </Button>
         </ButtonGroup>
       </Section>
 
@@ -143,10 +177,16 @@ function CoffeeModal({ tempClick, sizeClick, toppingClick, iceTempClick }) {
       <Section marginTop="20px">
         <SectionName>토핑</SectionName>
         <ButtonGroup>
-          <Button onClick={() => handleClick("topping", "바닐라 시럽")}>
+          <Button
+            onClick={() => handleClick("topping", "바닐라 시럽")}
+            isActive={options.topping === "바닐라 시럽"}
+          >
             바닐라
           </Button>
-          <Button onClick={() => handleClick("topping", "헤이즐넛 시럽")}>
+          <Button
+            onClick={() => handleClick("topping", "헤이즐넛 시럽")}
+            isActive={options.topping === "헤이즐넛 시럽"}
+          >
             헤이즐넛
           </Button>
         </ButtonGroup>
@@ -159,18 +199,21 @@ function CoffeeModal({ tempClick, sizeClick, toppingClick, iceTempClick }) {
           <Button
             onClick={() => handleClick("iceTemp", "얼음 많이")}
             disabled={isIceDisabled}
+            isActive={options.icetemp === "얼음 많이"}
           >
             얼음 많이
           </Button>
           <Button
             onClick={() => handleClick("iceTemp", "기본")}
             disabled={isIceDisabled}
+            isActive={options.icetemp === "기본"}
           >
             기본 얼음
           </Button>
           <Button
             onClick={() => handleClick("iceTemp", "얼음 조금")}
             disabled={isIceDisabled}
+            isActive={options.icetemp === "얼음 조금"}
           >
             얼음 조금
           </Button>
