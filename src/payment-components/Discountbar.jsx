@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Buttons = styled.div`
@@ -62,4 +63,7 @@ function Discountbar({ icon }) {
     </>
   );
 }
+Discountbar.propTypes = {
+  icon: PropTypes.array,
+};
 export default Discountbar;

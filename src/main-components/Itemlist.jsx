@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Modal from "../modal-components/modal";
+import PropTypes from "prop-types";
 
 const BMenu = styled.div`
   background-color: #6ebdba;
@@ -84,5 +84,8 @@ function Itemlist({ items, openModal }) {
     </BMenu>
   );
 }
-
+Itemlist.propTypes = {
+  items: PropTypes.array,
+  openModal: PropTypes.func,
+};
 export default Itemlist;

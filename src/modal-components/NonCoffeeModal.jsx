@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 const Container = styled.div`
@@ -118,5 +119,9 @@ function NonCoffeeModal({ sizeClick, iceTempClick, options }) {
     </Container>
   );
 }
-
+NonCoffeeModal.propTypes = {
+  sizeClick: PropTypes.func,
+  iceTempClick: PropTypes.func,
+  options: PropTypes.object,
+};
 export default NonCoffeeModal;

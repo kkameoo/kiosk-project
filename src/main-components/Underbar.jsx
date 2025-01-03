@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 const Underbox = styled.div`
   margin: 10px 0 0 45px;
@@ -247,4 +248,12 @@ function Underbar({
     </Underbox>
   );
 }
+Underbar.propTypes = {
+  cartItem: PropTypes.array,
+  plusCart: PropTypes.func,
+  minusCart: PropTypes.func,
+  paynow: PropTypes.func,
+  totalPrice: PropTypes.number,
+  count: PropTypes.number,
+};
 export default Underbar;

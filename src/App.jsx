@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import styled from "styled-components";
 import Menu from "./pages/Menu";

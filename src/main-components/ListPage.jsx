@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 const Div = styled.div`
@@ -93,4 +93,13 @@ function ListPage({ pages, paging, prevButton, nextButton, readPage }) {
     </Div>
   );
 }
+
+ListPage.propTypes = {
+  pages: PropTypes.array,
+  paging: PropTypes.func,
+  prevButton: PropTypes.func,
+  nextButton: PropTypes.func,
+  readPage: PropTypes.number,
+};
+
 export default ListPage;

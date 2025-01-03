@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -160,5 +161,7 @@ function PaymentModal({ totalPrice }) {
     </Container>
   );
 }
-
+PaymentModal.propTypes = {
+  totalPrice: PropTypes.number,
+};
 export default PaymentModal;

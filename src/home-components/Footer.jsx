@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const Wrap = styled.div`
@@ -46,4 +47,7 @@ function Footer({ icon }) {
     </Wrap>
   );
 }
+Footer.propTypes = {
+  icon: PropTypes.array,
+};
 export default Footer;

@@ -3,6 +3,7 @@ import CoffeeModal from "./CoffeeModal";
 import NonCoffeeModal from "./NonCoffeeModal";
 import DessertModal from "./DessertModal";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 //모달배경 스타일
 const Container = styled.div`
@@ -109,12 +110,6 @@ function Modal({ onClose, readItem, addCart }) {
     addmenu: "none",
   });
 
-  const [selectedSize, setSelectedSize] = useState(0);
-
-  const handleSize = (data) => {
-    setSelectedSize(data);
-  };
-
   // 옵션 변경 함수
   const handleOptionChange = (key, value) => {
     if (key === "temp") {
@@ -191,5 +186,9 @@ function Modal({ onClose, readItem, addCart }) {
     </Container>
   );
 }
-
+Modal.propTypes = {
+  onClose: PropTypes.func,
+  readItem: PropTypes.object,
+  addCart: PropTypes.func,
+};
 export default Modal;

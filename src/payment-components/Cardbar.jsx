@@ -1,4 +1,4 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 // import PaymentModal from "./PaymentModal";
 
@@ -121,4 +121,8 @@ function Cardbar({ icon, handleModal }) {
     </>
   );
 }
+Cardbar.propTypes = {
+  icon: PropTypes.array,
+  handleModal: PropTypes.func,
+};
 export default Cardbar;

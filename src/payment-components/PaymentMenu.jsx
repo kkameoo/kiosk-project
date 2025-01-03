@@ -1,4 +1,4 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const MenuItemList = styled.div`
@@ -58,4 +58,8 @@ function PaymentMenu({ cartItem, totalPrice }) {
     </>
   );
 }
+PaymentMenu.propTypes = {
+  cartItem: PropTypes.array,
+  totalPrice: PropTypes.number,
+};
 export default PaymentMenu;

@@ -5,7 +5,7 @@ import Topbar from "../main-components/TopBar";
 import Underbar from "../main-components/Underbar";
 
 import ListPage from "../main-components/ListPage";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Modal from "../modal-components/modal";
 
 function Menu() {
@@ -77,7 +77,7 @@ function Menu() {
     }
   };
 
-  // 페이지  넘버 클릭 시 6개 분량의 콘텐츠가 나오도록 조정 + 현재 페이지 세팅
+  // 페이지  넘버 클릭 시 9개 분량의 콘텐츠가 나오도록 조정 + 현재 페이지 세팅
   const paging = (page) => {
     let processingData = [];
     let num = 0;
@@ -216,7 +216,7 @@ function Menu() {
     }
     // calc();
     setOpen(false);
-    console.log("finish");
+    // console.log("finish");
   };
 
   useMemo(() => {
@@ -318,22 +318,22 @@ function Menu() {
 
     if (count < 1) {
       clearInterval(interval.current);
-      navigate("/home");
+      navigate("/");
     }
     return () => clearInterval(interval.current);
   });
 
   useEffect(() => {
     setCount(180);
-    console.log("itemlist render");
+    // console.log("itemlist render");
   }, [itemList]);
   useEffect(() => {
     setCount(180);
-    console.log("cartitem render");
+    // console.log("cartitem render");
   }, [cartItem]);
   useEffect(() => {
     setCount(180);
-    console.log("count render");
+    // console.log("count render");
   }, [open]);
 
   return (

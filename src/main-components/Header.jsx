@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -56,4 +57,7 @@ function Header({ icon }) {
     </HeaderBox>
   );
 }
+Header.propTypes = {
+  icon: PropTypes.string,
+};
 export default Header;

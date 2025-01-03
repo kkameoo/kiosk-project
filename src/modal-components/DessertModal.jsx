@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 const Container = styled.div`
@@ -65,5 +66,9 @@ function DessertModal({ addCoffeeClick, options }) {
     </Container>
   );
 }
+DessertModal.propTypes = {
+  addCoffeeClick: PropTypes.func,
+  options: PropTypes.object,
+};
 
 export default DessertModal;

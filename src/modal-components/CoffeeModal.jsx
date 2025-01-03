@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import styled, { css } from "styled-components";
 
@@ -227,5 +228,13 @@ function CoffeeModal({
     </Container>
   );
 }
+
+CoffeeModal.propTypes = {
+  tempClick: PropTypes.func,
+  sizeClick: PropTypes.func,
+  toppingClick: PropTypes.func,
+  iceTempClick: PropTypes.func,
+  options: PropTypes.object,
+};
 
 export default CoffeeModal;

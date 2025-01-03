@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import styled, { css } from "styled-components";
 const Btnwrqp = styled.div`
@@ -88,4 +89,11 @@ function Topbar({
     </Btnwrqp>
   );
 }
+Topbar.propTypes = {
+  allButton: PropTypes.func,
+  dessertButton: PropTypes.func,
+  coffeeButton: PropTypes.func,
+  beverageButton: PropTypes.func,
+  etcButton: PropTypes.func,
+};
 export default Topbar;
