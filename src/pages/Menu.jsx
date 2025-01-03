@@ -59,6 +59,7 @@ function Menu() {
       fetchImage(data);
     } catch (err) {
       setError(err.message);
+      console.log(error);
     }
   };
 
