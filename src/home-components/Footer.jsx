@@ -31,19 +31,16 @@ const Img = styled.img`
   height: 55%;
   margin-bottom: 20px;
 `;
-function Footer() {
-  const imgUrl = new URL("../images/icon/take-away.png", import.meta.url).href;
-  const imgUrl2 = new URL("../images/icon/coffee-cup.png", import.meta.url)
-    .href;
+function Footer({ icon }) {
   const navigate = useNavigate();
   return (
     <Wrap>
-      <Btn onClick={() => navigate("/")}>
-        <Img src={imgUrl} />
+      <Btn onClick={() => navigate("/menu")}>
+        <Img src={icon[2]} />
         먹고가기
       </Btn>
-      <Btn2 onClick={() => navigate("/")}>
-        <Img src={imgUrl2} />
+      <Btn2 onClick={() => navigate("/menu")}>
+        <Img src={icon[1]} />
         포장하기
       </Btn2>
     </Wrap>

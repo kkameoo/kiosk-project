@@ -3,24 +3,52 @@ import main11 from "../images/main11.mp4";
 import Header from "../home-components/Header";
 import Main from "../home-components/Main";
 import Footer from "../home-components/Footer";
-const Video = styled.video`
-  width: 100%;
-  height: 100%;
-  height: calc(100% + 120px); /* 비디오의 전체 높이를 100px 더 크게 만듬 */
-  object-fit: cover; /* 비디오가 화면을 덮도록 만듬 */
-  object-position: 0 -120px; /* 위 100px을 잘라내기 위해 위치를 조정 */
-  border-radius: 15px;
-`;
+import { useEffect, useState } from "react";
+import VideoPlay from "../home-components/VideoPlay";
+
 function Home() {
-  const imgUrl = new URL("../images/main11.mp4", import.meta.url).href;
+  const apiUrl = "http://localhost:1337/homeicon";
+  const [error, setError] = useState();
+  const [icon, setIcon] = useState([]);
+
+  // const imgUrl = new URL("../images/main11.mp4", import.meta.url).href;
+
+  useEffect(() => {
+    fetchIcons();
+  }, []);
+
+  const fetchIcons = async () => {
+    try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error("데이터를 받아오지 못했습니다.");
+      }
+      const data = await response.json();
+      // 이미지 가공 + 원본, 필터 state 세팅
+      // const data = data1.icon;
+      console.log(data);
+      fetchImage(data);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const fetchImage = (data) => {
+    let icons = [];
+    for (let i = 0; i < data.length; i++) {
+      let imgUrl = "http://localhost:1337/" + data[i];
+      //   console.log(imgUrl);
+      icons[i] = imgUrl;
+    }
+    setIcon(icons);
+  };
+
   return (
     <div>
       <Header />
-      <Video muted autoPlay loop>
-        <source src={main11} type="video/mp4" />
-      </Video>
+      <VideoPlay icon={icon} />
       <Main></Main>
-      <Footer></Footer>
+      <Footer icon={icon}></Footer>
     </div>
   );
 }

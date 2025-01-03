@@ -11,9 +11,11 @@ import Modal from "../modal-components/modal";
 function Menu() {
   useEffect(() => {
     fetchItems();
+    fetchIcon();
   }, []);
 
-  const apiUrl = "http://localhost:1337/cartlist";
+  const apiUrl = "http://localhost:1337/item";
+  const apiUrlIcon = "http://localhost:1337/icon";
   // 원본 아이템 리스트
   const [original, setOriginal] = useState([]);
   // 현재 아이템 리스트
@@ -36,6 +38,7 @@ function Menu() {
   const [totalPrice, setTotalPrice] = useState(0);
   // 카운트 시간
   const [count, setCount] = useState(180);
+  const [icon, setIcon] = useState(null);
 
   useEffect(() => {
     // console.log("필터 변경");
@@ -46,14 +49,29 @@ function Menu() {
   // 데이터 받아와서 itemList에 저장
   const fetchItems = async () => {
     try {
-      const response = await fetch("/data.json");
+      const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error("데이터를 받아오지 못했습니다.");
       }
-      const data1 = await response.json();
+      const data = await response.json();
       // 이미지 가공 + 원본, 필터 state 세팅
-      const data = data1.item;
+      // const data = data1.item;
       fetchImage(data);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const fetchIcon = async () => {
+    try {
+      const response = await fetch(apiUrlIcon);
+      if (!response.ok) {
+        throw new Error("데이터를 받아오지 못했습니다.");
+      }
+      const data = await response.json();
+      console.log(data);
+      let imgurl = "http://localhost:1337" + data[16];
+      setIcon(imgurl);
     } catch (err) {
       setError(err.message);
     }
@@ -79,7 +97,7 @@ function Menu() {
   // 이미지 다시 넣기 + 원본 필터세팅
   const fetchImage = (data) => {
     for (let i = 0; i < data.length; i++) {
-      let imgUrl = new URL(".." + data[i].imageUrl, import.meta.url).href;
+      let imgUrl = "http://localhost:1337/" + data[i].imageUrl;
       //   console.log(imgUrl);
       data[i].image = imgUrl;
     }
@@ -294,15 +312,14 @@ function Menu() {
   const interval = useRef();
   useEffect(() => {
     interval.current = setInterval(() => {
-      console.log(count);
+      // console.log(count);
       setCount((prev) => prev - 1);
     }, 1000);
 
     if (count < 1) {
       clearInterval(interval.current);
-      // navigate("/home");
+      navigate("/home");
     }
-    // console.log("render");
     return () => clearInterval(interval.current);
   });
 
@@ -321,7 +338,7 @@ function Menu() {
 
   return (
     <div>
-      <Header />
+      <Header icon={icon} />
       <Topbar
         paging={paging}
         allButton={allButton}
@@ -348,8 +365,6 @@ function Menu() {
         count={count}
         totalPrice={totalPrice}
       />
-
-      {/* <UnderBottombar paynow={paynow} /> */}
     </div>
   );
 }

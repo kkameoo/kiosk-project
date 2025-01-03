@@ -5,6 +5,7 @@ import PaymentMenu from "../payment-components/PaymentMenu";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "../payment-components/Header";
+import PaymentModal from "../payment-components/PaymentModal";
 
 const Contents = styled.div`
   padding: 20px;
@@ -28,11 +29,13 @@ const PaymentContainer = styled.div`
 `;
 
 function Payment() {
+  const apiUrl = "http://localhost:1337/icon";
   const [error, setError] = useState();
   const [icon, setIcon] = useState([]);
   const [cartItem, setCartItem] = useState([]);
   const location = useLocation();
   const [totalPrice, setTotalPrice] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // 마운트시 카트state를 세팅
   useEffect(() => {
     fetchIcons();
@@ -42,13 +45,13 @@ function Payment() {
 
   const fetchIcons = async () => {
     try {
-      const response = await fetch("/data.json");
+      const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error("데이터를 받아오지 못했습니다.");
       }
-      const data1 = await response.json();
+      const data = await response.json();
       // 이미지 가공 + 원본, 필터 state 세팅
-      const data = data1.icon;
+      // const data = data1.icon;
       console.log(data);
       fetchImage(data);
     } catch (err) {
@@ -59,20 +62,31 @@ function Payment() {
   const fetchImage = (data) => {
     let icons = [];
     for (let i = 0; i < data.length; i++) {
-      let imgUrl = new URL(".." + data[i], import.meta.url).href;
+      let imgUrl = "http://localhost:1337/" + data[i];
       //   console.log(imgUrl);
       icons[i] = imgUrl;
     }
     setIcon(icons);
   };
 
+  const handleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+  let modalContent = null;
+  if (isModalOpen === true) {
+    modalContent = <PaymentModal totalPrice={totalPrice} />;
+  } else if (isModalOpen === false) {
+    modalContent = null;
+  }
+
   return (
     <Container>
       <PaymentContainer>
         <Header />
         <Contents>
+          {modalContent}
           <Discountbar icon={icon} />
-          <Cardbar icon={icon} />
+          <Cardbar icon={icon} handleModal={handleModal} />
           <PaymentMenu cartItem={cartItem} totalPrice={totalPrice} />
         </Contents>
       </PaymentContainer>

@@ -56,6 +56,7 @@ const CountButton = styled.div`
   height: 40px;
   margin-top: 15px;
   button {
+    /* border: 2px solid gray; */
     background-color: white;
     width: 30px;
     border: none;

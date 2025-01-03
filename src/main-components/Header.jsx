@@ -41,16 +41,15 @@ const Img = styled.img`
   margin-left: 20px;
 `;
 
-function Header() {
-  const imgUrl = new URL("../images/home-btn2.png", import.meta.url).href;
+function Header({ icon }) {
   const navigate = useNavigate();
 
   return (
     <HeaderBox>
       <Img
-        src={imgUrl}
+        src={icon}
         onClick={() => {
-          navigate("/home");
+          navigate("/");
         }}
       />
       <CafeName>4jo Cafe</CafeName>

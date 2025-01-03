@@ -24,8 +24,8 @@ function App() {
       <br />
       <NavLink to="/payment">Payment</NavLink> */}
       <Routes>
-        <Route path="/" element={<Menu />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/" element={<Home />} />
         <Route path="/payment" element={<Payment />} />
       </Routes>
     </Container>

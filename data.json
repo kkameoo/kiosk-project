@@ -210,5 +210,10 @@
         "/images/icon/coupon.jpg", 
         "/images/icon/front-card.jpg",
         "/images/icon/cj-gift.png"
+    ],
+    "homeicon" : [
+        "/images/main11.mp4",
+        "/images/icon/coffee-cup.png",
+        "/images/icon/take-away.png"
     ]
 }

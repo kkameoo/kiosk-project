@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+// import PaymentModal from "./PaymentModal";
 
 const AButtonList = styled.div`
   display: flex;
@@ -53,12 +55,12 @@ const Img = styled.img`
   margin-right: 0.5rem;
 `;
 
-function Cardbar({ icon }) {
+function Cardbar({ icon, handleModal }) {
   return (
     <>
       <Span>결제 수단을 선택해주세요</Span>
       <AButtonList>
-        <Buttons id="payByCard" bMargin="0.75rem">
+        <Buttons id="payByCard" bMargin="0.75rem" onClick={handleModal}>
           <Img src={icon[0]} size="10rem" />
           카드결제
         </Buttons>
