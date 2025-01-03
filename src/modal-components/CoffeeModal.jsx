@@ -20,10 +20,13 @@ const TempButton = styled.button`
   background-color: white;
   cursor: pointer;
   border-radius: 10px;
+  &:hover {
+    transform: scale(1.05);
+  }
   ${(props) =>
     props.isActive &&
     css`
-      background-color: blue;
+      background-color: #5bd0ff;
     `}
 `;
 
@@ -39,7 +42,9 @@ const Button = styled.button`
   font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
-
+  &:hover {
+    transform: scale(1.05);
+  }
   &:disabled {
     background-color: gray;
     cursor: not-allowed;
@@ -48,7 +53,7 @@ const Button = styled.button`
   ${(props) =>
     props.isActive &&
     css`
-      background-color: blue;
+      background-color: #5bd0ff;
     `}
 `;
 

@@ -3,7 +3,6 @@ import Header from "../main-components/Header";
 import Itemlist from "../main-components/Itemlist";
 import Topbar from "../main-components/TopBar";
 import Underbar from "../main-components/Underbar";
-import UnderBottombar from "../main-components/UnderBottombar";
 
 import ListPage from "../main-components/ListPage";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -14,6 +13,7 @@ function Menu() {
     fetchItems();
   }, []);
 
+  const apiUrl = "http://localhost:1337/cartlist";
   // 원본 아이템 리스트
   const [original, setOriginal] = useState([]);
   // 현재 아이템 리스트

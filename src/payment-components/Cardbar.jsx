@@ -27,6 +27,10 @@ const Buttons = styled.div`
   margin-right: ${(props) => props.bMargin};
   font-size: 2.2rem;
   font-weight: bold;
+  &:hover {
+    transform: scale(1.05);
+  }
+  cursor: pointer;
 `;
 
 const AButtons = styled(Buttons)`

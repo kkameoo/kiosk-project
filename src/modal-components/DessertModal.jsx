@@ -35,7 +35,7 @@ const CoffeeButton = styled.button`
   ${(props) =>
     props.isActive &&
     css`
-      background-color: blue;
+      background-color: #5bd0ff;
     `}
 `;
 

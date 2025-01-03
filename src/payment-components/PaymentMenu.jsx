@@ -7,6 +7,7 @@ const MenuItemList = styled.div`
   border: 2px #cacaca solid;
   border-radius: 5px;
   height: 12rem;
+  overflow-y: auto;
 `;
 
 const Span = styled.span`

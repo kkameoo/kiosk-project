@@ -11,6 +11,10 @@ const Buttons = styled.div`
   justify-content: center;
   font-size: 2rem;
   font-weight: bold;
+  &:hover {
+    transform: scale(1.05);
+  }
+  cursor: pointer;
 `;
 
 const Span = styled.span`

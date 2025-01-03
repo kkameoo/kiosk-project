@@ -6,6 +6,7 @@ const HeaderBox = styled.div`
   height: 100px;
   margin-bottom: 50px;
   background-color: #79b0d4;
+  border-radius: 15px;
 `;
 const CafeName = styled.div`
   position: absolute;
